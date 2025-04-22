@@ -10,6 +10,20 @@
         .lang-content.active {
             display: block;
         }
+
+        .zoomable {
+            cursor: zoom-in;
+            transition: transform 0.3s cubic-bezier(.4, 2, .6, 1), box-shadow 0.3s;
+            z-index: 1;
+            position: relative;
+        }
+
+        .zoomable.zoomed {
+            transform: scale(2.2);
+            cursor: zoom-out;
+            z-index: 10;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        }
     </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -142,7 +156,7 @@
             overflow-x: auto;
         }
 
-        img {
+        img.zoomable {
             display: block;
             margin-bottom: 20px;
             max-width: 400px;
@@ -224,17 +238,17 @@ HAVING visit_count > 1;</code></pre>
             <h2>Results</h2>
             <div>
                 <h4>Active users per day</h4>
-                <img src="results/Active users per day.png" alt="Active users per day">
+                <img class="zoomable" src="results/Active users per day.png" alt="Active users per day">
                 <h4>Traffic sources</h4>
-                <img src="results/Traffic sources.png" alt="Traffic sources">
+                <img class="zoomable" src="results/Traffic sources.png" alt="Traffic sources">
                 <h4>Average session duration</h4>
-                <img src="results/Average session duration.png" alt="Average session duration">
+                <img class="zoomable" src="results/Average session duration.png" alt="Average session duration">
                 <h4>Bounce rate</h4>
-                <img src="results/Bounce rate.png" alt="Bounce rate">
+                <img class="zoomable" src="results/Bounce rate.png" alt="Bounce rate">
                 <h4>Returning visits</h4>
-                <img src="results/Returning visits.png" alt="Returning visits">
+                <img class="zoomable" src="results/Returning visits.png" alt="Returning visits">
                 <h4>Database structure</h4>
-                <img src="results/database structure.png" alt="Database structure">
+                <img class="zoomable" src="results/database structure.png" alt="Database structure">
             </div>
             <a class="github-link" href="https://github.com/zaburdaev/zaburdaev.github.io/tree/main/projects/sql"
                 target="_blank">
@@ -287,17 +301,17 @@ HAVING visit_count > 1;</code></pre>
             <h2>Результати</h2>
             <div>
                 <h4>Активні користувачі по днях</h4>
-                <img src="results/Active users per day.png" alt="Активні користувачі по днях">
+                <img class="zoomable" src="results/Active users per day.png" alt="Активні користувачі по днях">
                 <h4>Джерела трафіку</h4>
-                <img src="results/Traffic sources.png" alt="Джерела трафіку">
+                <img class="zoomable" src="results/Traffic sources.png" alt="Джерела трафіку">
                 <h4>Середня тривалість сесії</h4>
-                <img src="results/Average session duration.png" alt="Середня тривалість сесії">
+                <img class="zoomable" src="results/Average session duration.png" alt="Середня тривалість сесії">
                 <h4>Відсоток відмов</h4>
-                <img src="results/Bounce rate.png" alt="Відсоток відмов">
+                <img class="zoomable" src="results/Bounce rate.png" alt="Відсоток відмов">
                 <h4>Повторні візити</h4>
-                <img src="results/Returning visits.png" alt="Повторні візити">
+                <img class="zoomable" src="results/Returning visits.png" alt="Повторні візити">
                 <h4>Структура бази</h4>
-                <img src="results/database structure.png" alt="Структура бази">
+                <img class="zoomable" src="results/database structure.png" alt="Структура бази">
             </div>
             <a class="github-link" href="https://github.com/zaburdaev/zaburdaev.github.io/tree/main/projects/sql"
                 target="_blank">
@@ -306,6 +320,7 @@ HAVING visit_count > 1;</code></pre>
         </section>
     </main>
     <script>
+        // Языковой скрипт + зум для картинок
         function switchLang(lang) {
             document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('[data-lang-en], [data-lang-ua]').forEach(el => {
@@ -322,6 +337,21 @@ HAVING visit_count > 1;</code></pre>
         window.onload = function () {
             const savedLang = localStorage.getItem('lang') || 'en';
             switchLang(savedLang);
+
+            // Зум для картинок
+            document.querySelectorAll('.zoomable').forEach(img => {
+                img.addEventListener('click', function () {
+                    if (img.classList.contains('zoomed')) {
+                        img.classList.remove('zoomed');
+                    } else {
+                        // Сначала убрать зум у других
+                        document.querySelectorAll('.zoomable.zoomed').forEach(other => {
+                            other.classList.remove('zoomed');
+                        });
+                        img.classList.add('zoomed');
+                    }
+                });
+            });
         };
     </script>
 </body>
