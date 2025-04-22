@@ -23,6 +23,12 @@
     .contacts i { width: 25px; color: #0056b3; }
     .project-link { display: inline-block; padding: 8px 15px; background: #f5f5f5; border-radius: 4px; transition: background 0.2s; }
     .project-link:hover { background: #e5e5e5; }
+    .about-container { display: flex; align-items: center; gap: 2rem; }
+    .about-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #eee; }
+    @media (max-width: 600px) {
+      .about-container { flex-direction: column; gap: 1rem; }
+      main { padding: 0.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -37,18 +43,21 @@
   <main>
     <section>
       <h2 data-lang-en="About Me" data-lang-ua="Про мене">About Me</h2>
-      <p data-lang-en="I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio."
-         data-lang-ua="Я QA-інженер, який переходить у напрямок системної архітектури та створює портфоліо фулстек-розробника.">
-        I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio.
-      </p>
+      <div class="about-container">
+        <img src="assets/images/1696615033270.jpeg" alt="Profile photo" class="about-photo" />
+        <p data-lang-en="I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio."
+           data-lang-ua="Я QA-інженер, який переходить у напрямок системної архітектури та створює портфоліо фулстек-розробника.">
+          I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio.
+        </p>
+      </div>
     </section>
 
     <section>
       <h2 data-lang-en="Tech Stack" data-lang-ua="Технології">Tech Stack</h2>
       <ul class="tech-stack">
         <li>
-          <i class="fas fa-database"></i>
-          <span data-lang-en="SQL" data-lang-ua="SQL">SQL</span>
+          <a href="#sql-project"><i class="fas fa-database"></i>
+          <span data-lang-en="SQL" data-lang-ua="SQL">SQL</span></a>
         </li>
         <li>
           <i class="fab fa-html5"></i>
@@ -94,7 +103,7 @@
     <section>
       <h2 data-lang-en="Projects by Stack" data-lang-ua="Проєкти за технологіями">Projects by Stack</h2>
       <ul>
-        <li>
+        <li id="sql-project">
           <i class="fas fa-database"></i>
           <a href="projects/sql/index.html" class="project-link"
              data-lang-en="SQL: Website Traffic Analysis"
@@ -116,19 +125,17 @@
       </p>
       <p>
         <i class="fab fa-linkedin"></i>
-        <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/vitalii-zaburdaiev/" target="_blank">LinkedIn</a>
       </p>
     </section>
   </main>
 
   <script>
-    // По умолчанию английский
     function switchLang(lang) {
       document.querySelectorAll('[data-lang-' + lang + ']').forEach(el => {
         el.textContent = el.getAttribute('data-lang-' + lang);
       });
     }
-    // Сразу выставляем английский при загрузке
     window.onload = function() { switchLang('en'); };
   </script>
 </body>
