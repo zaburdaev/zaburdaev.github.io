@@ -26,48 +26,110 @@
   </style>
 </head>
 <body>
-  <!-- Header остается тем же -->
+  <header>
+    <h1 data-lang-en="Vitaliy Zaburdaev" data-lang-ua="Віталій Забурдаєв">Vitaliy Zaburdaev</h1>
+    <nav>
+      <span class="lang-switch" onclick="switchLang('en')">🇬🇧</span>
+      <span class="lang-switch" onclick="switchLang('ua')">🇺🇦</span>
+    </nav>
+  </header>
 
   <main>
-    <!-- About Me section остается тем же -->
+    <section>
+      <h2 data-lang-en="About Me" data-lang-ua="Про мене">About Me</h2>
+      <p data-lang-en="I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio."
+         data-lang-ua="Я QA-інженер, який переходить у напрямок системної архітектури та створює портфоліо фулстек-розробника.">
+        I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio.
+      </p>
+    </section>
 
     <section>
       <h2 data-lang-en="Tech Stack" data-lang-ua="Технології">Tech Stack</h2>
       <ul class="tech-stack">
-        <li><i class="fas fa-database"></i> SQL</li>
-        <li><i class="fab fa-html5"></i> HTML</li>
-        <li><i class="fab fa-css3-alt"></i> CSS</li>
-        <li><i class="fab fa-js"></i> JavaScript</li>
-        <li><i class="fab fa-java"></i> Java</li>
-        <li><i class="fas fa-vial"></i> QA (Manual & Automation)</li>  
-        <li><i class="fas fa-robot"></i> Selenium</li>
+        <li>
+          <i class="fas fa-database"></i>
+          <span data-lang-en="SQL" data-lang-ua="SQL">SQL</span>
+        </li>
+        <li>
+          <i class="fab fa-html5"></i>
+          <span data-lang-en="HTML" data-lang-ua="HTML">HTML</span>
+        </li>
+        <li>
+          <i class="fab fa-css3-alt"></i>
+          <span data-lang-en="CSS" data-lang-ua="CSS">CSS</span>
+        </li>
+        <li>
+          <i class="fab fa-js"></i>
+          <span data-lang-en="JavaScript" data-lang-ua="JavaScript">JavaScript</span>
+        </li>
+        <li>
+          <i class="fab fa-java"></i>
+          <span data-lang-en="Java" data-lang-ua="Java">Java</span>
+        </li>
+        <li>
+          <i class="fas fa-vial"></i>
+          <span data-lang-en="QA (Manual & Automation)" data-lang-ua="QA (мануальне та автоматизоване тестування)">QA (Manual & Automation)</span>
+        </li>
+        <li>
+          <i class="fas fa-robot"></i>
+          <span data-lang-en="Selenium" data-lang-ua="Selenium">Selenium</span>
+        </li>
       </ul>
     </section>
 
     <section>
       <h2 data-lang-en="Resume & Cover Letter" data-lang-ua="Резюме та супровідний лист">Resume & Cover Letter</h2>
       <ul>
-        <li><i class="far fa-file-pdf"></i> <a href="cv.pdf" target="_blank" data-lang-en="Download CV" data-lang-ua="Завантажити резюме">Download CV</a></li>
-        <li><i class="far fa-file-alt"></i> <a href="cover-letter.pdf" target="_blank" data-lang-en="Download Cover Letter" data-lang-ua="Завантажити супровідний лист">Download Cover Letter</a></li>
+        <li>
+          <i class="far fa-file-pdf"></i>
+          <a href="cv.pdf" target="_blank" data-lang-en="Download CV" data-lang-ua="Завантажити резюме">Download CV</a>
+        </li>
+        <li>
+          <i class="far fa-file-alt"></i>
+          <a href="cover-letter.pdf" target="_blank" data-lang-en="Download Cover Letter" data-lang-ua="Завантажити супровідний лист">Download Cover Letter</a>
+        </li>
       </ul>
     </section>
 
     <section>
       <h2 data-lang-en="Projects by Stack" data-lang-ua="Проєкти за технологіями">Projects by Stack</h2>
       <ul>
-        <li><i class="fas fa-database"></i> <a href="projects/sql/index.html" class="project-link" data-lang-en="SQL: Website Traffic Analysis" data-lang-ua="SQL: Аналіз трафіку сайту">SQL: Website Traffic Analysis</a></li>
+        <li>
+          <i class="fas fa-database"></i>
+          <a href="projects/sql/index.html" class="project-link"
+             data-lang-en="SQL: Website Traffic Analysis"
+             data-lang-ua="SQL: Аналіз трафіку сайту">SQL: Website Traffic Analysis</a>
+        </li>
         <!-- Add more projects here -->
       </ul>
     </section>
 
     <section>
       <h2 data-lang-en="Contacts" data-lang-ua="Контакти">Contacts</h2>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:zaburdaev.vitaliy@gmail.com">zaburdaev.vitaliy@gmail.com</a></p>
-      <p><i class="fab fa-github"></i> <a href="https://github.com/zaburdaev" target="_blank">github.com/zaburdaev</a></p>
-      <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a></p>
+      <p>
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:zaburdaev.vitaliy@gmail.com">zaburdaev.vitaliy@gmail.com</a>
+      </p>
+      <p>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/zaburdaev" target="_blank">github.com/zaburdaev</a>
+      </p>
+      <p>
+        <i class="fab fa-linkedin"></i>
+        <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+      </p>
     </section>
   </main>
 
-  <!-- Script остается тем же -->
+  <script>
+    // По умолчанию английский
+    function switchLang(lang) {
+      document.querySelectorAll('[data-lang-' + lang + ']').forEach(el => {
+        el.textContent = el.getAttribute('data-lang-' + lang);
+      });
+    }
+    // Сразу выставляем английский при загрузке
+    window.onload = function() { switchLang('en'); };
+  </script>
 </body>
 </html>
