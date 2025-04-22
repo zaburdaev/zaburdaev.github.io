@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Traffic Analysis | Аналіз трафіку сайту</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f9f9f9;
+        }
+
+        .lang-switch {
+            float: right;
+            margin-top: 10px;
+        }
+
+        .lang-switch button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .lang-switch button:hover {
+            background: #0056b3;
+        }
+
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 0.2em;
+        }
+
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lang-switch">
+        <button onclick="switchLang('ua')" aria-label="Переключити на українську"
+            title="Переключити на українську">UA</button>
+        <button onclick="switchLang('en')" aria-label="Switch to English" title="Switch to English">EN</button>
+    </div>
+
+    <!-- Ukrainian Content -->
+    <div class="lang-content ua active">
+        <h1>Аналіз трафіку сайту (SQL)</h1>
+        <p>У цьому проєкті ми аналізуємо поведінку користувачів на сайті за допомогою SQL-запитів. Ми досліджуємо
+            джерела трафіку, сесії та залученість користувачів.</p>
+
+        <h2>Використані таблиці:</h2>
+        <ul>
+            <li><strong>users</strong> – інформація про користувачів</li>
+            <li><strong>sessions</strong> – дані про сесії</li>
+            <li><strong>traffic_sources</strong> – звідки прийшов користувач</li>
+            <li><strong>events</strong> – дії користувачів на сайті</li>
+        </ul>
+
+        <h2>SQL-запити:</h2>
+        <h3>1. Активні користувачі по днях</h3>
+        <pre><code class="language-sql">SELECT DATE(session_start) AS date, COUNT(DISTINCT user_id) AS active_users
+FROM sessions
+GROUP BY DATE(session_start)
+ORDER BY date;</code></pre>
+
+        <h3>2. Джерела трафіку</h3>
+        <pre><code class="language-sql">SELECT traffic_source, COUNT(DISTINCT user_id) AS user_count
+FROM traffic_sources
+GROUP BY traffic_source
+ORDER BY user_count DESC;</code></pre>
+
+        <h3>3. Середня тривалість сесії</h3>
+        <pre><code class="language-sql">SELECT AVG(session_duration) AS avg_duration
+FROM sessions;</code></pre>
+
+        <h3>4. Відсоток відмов (bounce rate)</h3>
+        <pre><code class="language-sql">SELECT
+  (SUM(CASE WHEN events_count = 1 THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS bounce_rate
+FROM sessions;</code></pre>
+
+        <h3>5. Повторні візити</h3>
+        <pre><code class="language-sql">SELECT user_id, COUNT(*) AS visit_count
+FROM sessions
+GROUP BY user_id
+HAVING visit_count > 1;</code></pre>
+
+        <h2>Висновки:</h2>
+        <p>Більшість користувачів надходять з органічного пошуку. Середня тривалість сесії — близько 3 хвилин. Відсоток
+            відмов — 45%.</p>
+    </div>
+
+    <!-- English Content -->
+    <div class="lang-content en">
+        <h1>Website Traffic Analysis (SQL)</h1>
+        <p>This project analyzes user behavior on a website using SQL queries. It explores traffic sources, session
+            data, and user engagement.</p>
+
+        <h2>Tables Used:</h2>
+        <ul>
+            <li><strong>users</strong> – user information</li>
+            <li><strong>sessions</strong> – session data</li>
+            <li><strong>traffic_sources</strong> – source of traffic</li>
+            <li><strong>events</strong> – user actions</li>
+        </ul>
+
+        <h2>SQL Queries:</h2>
+        <h3>1. Active users per day</h3>
+        <pre><code class="language-sql">SELECT DATE(session_start) AS date, COUNT(DISTINCT user_id) AS active_users
+FROM sessions
+GROUP BY DATE(session_start)
+ORDER BY date;</code></pre>
+
+        <h3>2. Traffic sources</h3>
+        <pre><code class="language-sql">SELECT traffic_source, COUNT(DISTINCT user_id) AS user_count
+FROM traffic_sources
+GROUP BY traffic_source
+ORDER BY user_count DESC;</code></pre>
+
+        <h3>3. Average session duration</h3>
+        <pre><code class="language-sql">SELECT AVG(session_duration) AS avg_duration
+FROM sessions;</code></pre>
+
+        <h3>4. Bounce rate</h3>
+        <pre><code class="language-sql">SELECT
+  (SUM(CASE WHEN events_count = 1 THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS bounce_rate
+FROM sessions;</code></pre>
+
+        <h3>5. Returning visits</h3>
+        <pre><code class="language-sql">SELECT user_id, COUNT(*) AS visit_count
+FROM sessions
+GROUP BY user_id
+HAVING visit_count > 1;</code></pre>
+
+        <h2>Insights:</h2>
+        <p>Most users come from organic search. The average session duration is around 3 minutes. Bounce rate is 45%.
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('lang') || 'ua';
+            switchLang(savedLang);
+        });
+
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            document.querySelector(`.${lang}`).classList.add('active');
+            localStorage.setItem('lang', lang);
+        }
+    </script>
+</body>
+
+</html>
