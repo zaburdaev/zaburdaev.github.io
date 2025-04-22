@@ -1,0 +1,7 @@
+.lang-content {
+    display: none;
+}
+
+.lang-content.active {
+    display: block;
+}
