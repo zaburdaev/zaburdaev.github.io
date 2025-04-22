@@ -1,36 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vitaliy Zaburdaev | Portfolio</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-    header { background: #222; color: #fff; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
-    header h1 { margin: 0; font-size: 1.5rem; }
-    nav a { color: #fff; margin-left: 1rem; text-decoration: none; }
-    .lang-switch { cursor: pointer; font-weight: bold; padding: 5px; transition: transform 0.2s; }
-    .lang-switch:hover { transform: scale(1.1); }
-    main { padding: 2rem; max-width: 900px; margin: auto; }
-    section { margin-bottom: 2rem; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    h2 { color: #444; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
-    ul { padding-left: 1rem; list-style: none; }
-    ul li { margin: 10px 0; }
-    a { color: #0056b3; text-decoration: none; transition: color 0.2s; }
-    a:hover { color: #003d82; }
-    .tech-stack li i { width: 25px; margin-right: 10px; color: #0056b3; }
-    .contacts i { width: 25px; color: #0056b3; }
-    .project-link { display: inline-block; padding: 8px 15px; background: #f5f5f5; border-radius: 4px; transition: background 0.2s; }
-    .project-link:hover { background: #e5e5e5; }
-    .about-container { display: flex; align-items: center; gap: 2rem; }
-    .about-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid #eee; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+
+    .lang-switch {
+      cursor: pointer;
+      font-weight: bold;
+      padding: 5px;
+      transition: transform 0.2s;
+    }
+
+    .lang-switch:hover {
+      transform: scale(1.1);
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #444;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1rem;
+      list-style: none;
+    }
+
+    ul li {
+      margin: 10px 0;
+    }
+
+    a {
+      color: #0056b3;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #003d82;
+    }
+
+    .tech-stack li i {
+      width: 25px;
+      margin-right: 10px;
+      color: #0056b3;
+    }
+
+    .contacts i {
+      width: 25px;
+      color: #0056b3;
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 8px 15px;
+      background: #f5f5f5;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .project-link:hover {
+      background: #e5e5e5;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .about-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #eee;
+    }
+
     @media (max-width: 600px) {
-      .about-container { flex-direction: column; gap: 1rem; }
-      main { padding: 0.5rem; }
+      .about-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      main {
+        padding: 0.5rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1 data-lang-en="Vitaliy Zaburdaev" data-lang-ua="Віталій Забурдаєв">Vitaliy Zaburdaev</h1>
@@ -46,7 +150,7 @@
       <div class="about-container">
         <img src="assets/images/1696615033270.jpeg" alt="Profile photo" class="about-photo" />
         <p data-lang-en="I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio."
-           data-lang-ua="Я QA-інженер, який переходить у напрямок системної архітектури та створює портфоліо фулстек-розробника.">
+          data-lang-ua="Я QA-інженер, який переходить у напрямок системної архітектури та створює портфоліо фулстек-розробника.">
           I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio.
         </p>
       </div>
@@ -57,7 +161,7 @@
       <ul class="tech-stack">
         <li>
           <a href="#sql-project"><i class="fas fa-database"></i>
-          <span data-lang-en="SQL" data-lang-ua="SQL">SQL</span></a>
+            <span data-lang-en="SQL" data-lang-ua="SQL">SQL</span></a>
         </li>
         <li>
           <i class="fab fa-html5"></i>
@@ -77,7 +181,8 @@
         </li>
         <li>
           <i class="fas fa-vial"></i>
-          <span data-lang-en="QA (Manual & Automation)" data-lang-ua="QA (мануальне та автоматизоване тестування)">QA (Manual & Automation)</span>
+          <span data-lang-en="QA (Manual & Automation)" data-lang-ua="QA (мануальне та автоматизоване тестування)">QA
+            (Manual & Automation)</span>
         </li>
         <li>
           <i class="fas fa-robot"></i>
@@ -95,7 +200,8 @@
         </li>
         <li>
           <i class="far fa-file-alt"></i>
-          <a href="cover-letter.pdf" target="_blank" data-lang-en="Download Cover Letter" data-lang-ua="Завантажити супровідний лист">Download Cover Letter</a>
+          <a href="cover-letter.pdf" target="_blank" data-lang-en="Download Cover Letter"
+            data-lang-ua="Завантажити супровідний лист">Download Cover Letter</a>
         </li>
       </ul>
     </section>
@@ -105,11 +211,24 @@
       <ul>
         <li id="sql-project">
           <i class="fas fa-database"></i>
-          <a href="projects/sql/index.html" class="project-link"
-             data-lang-en="SQL: Website Traffic Analysis"
-             data-lang-ua="SQL: Аналіз трафіку сайту">SQL: Website Traffic Analysis</a>
+          <a href="projects/sql/index.html" class="project-link" data-lang-en="SQL: Website Traffic Analysis"
+            data-lang-ua="SQL: Аналіз трафіку сайту">SQL: Website Traffic Analysis</a>
         </li>
-        <!-- Add more projects here -->
+        <li>
+          <i class="fas fa-user"></i>
+          <a href="projects/html-css/about-me/index.html" class="project-link" data-lang-en="HTML/CSS: About Me Page"
+            data-lang-ua="HTML/CSS: Сторінка про мене">HTML/CSS: About Me Page</a>
+        </li>
+        <li>
+          <i class="fas fa-envelope"></i>
+          <a href="projects/html-css/contact-form/index.html" class="project-link" data-lang-en="HTML/CSS: Contact Form"
+            data-lang-ua="HTML/CSS: Форма зворотного зв'язку">HTML/CSS: Contact Form</a>
+        </li>
+        <li>
+          <i class="fas fa-exclamation-triangle"></i>
+          <a href="projects/html-css/404-page/index.html" class="project-link" data-lang-en="HTML/CSS: 404 Page"
+            data-lang-ua="HTML/CSS: Сторінка 404">HTML/CSS: 404 Page</a>
+        </li>
       </ul>
     </section>
 
@@ -136,7 +255,8 @@
         el.textContent = el.getAttribute('data-lang-' + lang);
       });
     }
-    window.onload = function() { switchLang('en'); };
+    window.onload = function () { switchLang('en'); };
   </script>
 </body>
+
 </html>
