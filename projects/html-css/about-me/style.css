@@ -1,0 +1,21 @@
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #eee;
+}
+
+@media (max-width: 600px) {
+    .about-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

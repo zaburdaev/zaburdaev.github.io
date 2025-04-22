@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me | Про мене</title>
+    <!-- Общий стиль -->
+    <link rel="stylesheet" href="../../../css/style.css" />
+    <!-- Локальный стиль (если нужно что-то особенное для about-me) -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <h1>
+            <i class="fas fa-user"></i>
+            <span data-lang-en="About Me" data-lang-ua="Про мене">About Me</span>
+        </h1>
+        <nav>
+            <span class="lang-switch" onclick="switchLang('en')">🇬🇧</span>
+            <span class="lang-switch" onclick="switchLang('ua')">🇺🇦</span>
+        </nav>
+    </header>
+    <main>
+        <a href="../../../index.html" class="back-link" data-lang-en="← Back to Portfolio"
+            data-lang-ua="← Назад до портфоліо">← Back to Portfolio</a>
+
+        <section class="lang-content en active">
+            <div class="about-container">
+                <img src="../../../assets/images/1696615033270.jpeg" alt="Profile photo" class="about-photo" />
+                <div>
+                    <h2>Hello! I'm Vitaliy Zaburdaev</h2>
+                    <p>QA Engineer transitioning into System Architecture. I love clean code, beautiful interfaces, and
+                        learning new technologies.</p>
+                    <ul>
+                        <li><i class="fab fa-html5"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                        <li><i class="fab fa-js"></i> JavaScript</li>
+                        <li><i class="fas fa-database"></i> SQL</li>
+                        <li><i class="fab fa-java"></i> Java</li>
+                        <li><i class="fas fa-vial"></i> QA (Manual & Automation)</li>
+                    </ul>
+                    <p>
+                        <a href="mailto:zaburdaev.vitaliy@gmail.com"><i class="fas fa-envelope"></i> Email</a> |
+                        <a href="https://github.com/zaburdaev" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        |
+                        <a href="https://www.linkedin.com/in/vitalii-zaburdaiev/" target="_blank"><i
+                                class="fab fa-linkedin"></i> LinkedIn</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lang-content ua">
+            <div class="about-container">
+                <img src="../../../assets/images/1696615033270.jpeg" alt="Фото профілю" class="about-photo" />
+                <div>
+                    <h2>Привіт! Я Віталій Забурдаєв</h2>
+                    <p>QA-інженер, який переходить у системну архітектуру. Люблю чистий код, красиві інтерфейси та
+                        вивчати нові технології.</p>
+                    <ul>
+                        <li><i class="fab fa-html5"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                        <li><i class="fab fa-js"></i> JavaScript</li>
+                        <li><i class="fas fa-database"></i> SQL</li>
+                        <li><i class="fab fa-java"></i> Java</li>
+                        <li><i class="fas fa-vial"></i> QA (мануальне та автоматизоване тестування)</li>
+                    </ul>
+                    <p>
+                        <a href="mailto:zaburdaev.vitaliy@gmail.com"><i class="fas fa-envelope"></i> Email</a> |
+                        <a href="https://github.com/zaburdaev" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        |
+                        <a href="https://www.linkedin.com/in/vitalii-zaburdaiev/" target="_blank"><i
+                                class="fab fa-linkedin"></i> LinkedIn</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('[data-lang-en], [data-lang-ua]').forEach(el => {
+                if (lang === 'en' && el.hasAttribute('data-lang-en')) {
+                    el.textContent = el.getAttribute('data-lang-en');
+                }
+                if (lang === 'ua' && el.hasAttribute('data-lang-ua')) {
+                    el.textContent = el.getAttribute('data-lang-ua');
+                }
+            });
+            document.querySelector(`.lang-content.${lang}`).classList.add('active');
+            localStorage.setItem('lang', lang);
+        }
+        window.onload = function () {
+            const savedLang = localStorage.getItem('lang') || 'en';
+            switchLang(savedLang);
+        };
+    </script>
+</body>
+
+</html>
