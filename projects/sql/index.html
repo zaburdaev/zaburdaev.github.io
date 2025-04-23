@@ -2,20 +2,201 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Traffic Analysis | Аналіз трафіку сайту</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap"
+        rel="stylesheet">
     <style>
-        .lang-content {
-            display: none;
+        /* Базовые стили */
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+            color: #222;
         }
 
-        .lang-content.active {
-            display: block;
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #a78bfa 0%, #6366f1 100%);
+            color: #fff;
+            padding: 1rem 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(99, 102, 241, 0.10);
         }
 
-        .zoomable {
-            cursor: zoom-in;
-            transition: transform 0.3s cubic-bezier(.4, 2, .6, 1), box-shadow 0.3s;
-            z-index: 1;
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sql-icon {
+            color: #fff;
+        }
+
+        .lang-switch {
+            cursor: pointer;
+            font-weight: bold;
+            padding: 5px;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .lang-switch:hover {
+            transform: scale(1.1);
+        }
+
+        /* Main content */
+        main {
+            padding: 2.5rem 0.5rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        section {
+            margin-bottom: 2.2rem;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.08);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        section:hover {
+            box-shadow: 0 12px 36px rgba(99, 102, 241, 0.13);
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        /* Headings */
+        h2 {
+            color: #6366f1;
+            border-bottom: 2px solid #e0e7ef;
+            padding-bottom: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            color: #3b82f6;
+            font-size: 1.15rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        h4 {
+            color: #6366f1;
+            font-size: 1.1rem;
+            margin: 1.2rem 0 0.8rem 0;
+        }
+
+        /* Lists */
+        ul {
+            padding-left: 1.2rem;
+            list-style: none;
+        }
+
+        ul li {
+            margin: 10px 0;
             position: relative;
+        }
+
+        ul li::before {
+            content: "•";
+            color: #6366f1;
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+
+        /* Links */
+        a {
+            color: #6366f1;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #3b82f6;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            background: linear-gradient(90deg, #f1f5fd 60%, #e0e7ef 100%);
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            transform: translateX(-3px);
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #6366f1 30%, #3b82f6 100%);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.13);
+        }
+
+        .github-link:hover {
+            background: linear-gradient(90deg, #3b82f6 30%, #6366f1 100%);
+            transform: scale(1.04);
+            color: #fff;
+        }
+
+        /* Code blocks */
+        code {
+            font-family: 'Fira Code', monospace;
+            background: #f1f5fd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #3b82f6;
+        }
+
+        pre {
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: 12px;
+            overflow-x: auto;
+            border: 1px solid #e0e7ef;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: #334155;
+        }
+
+        /* Images */
+        .zoomable {
+            display: block;
+            margin: 20px 0;
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.08);
+            cursor: zoom-in;
+            transition: all 0.3s cubic-bezier(.4, 2, .6, 1);
         }
 
         .zoomable.zoomed {
@@ -24,145 +205,25 @@
             z-index: 10;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
         }
-    </style>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Website Traffic Analysis | Аналіз трафіку сайту</title>
-    <link rel="stylesheet" href="../../css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f9f9f9;
-            color: #333;
+
+        /* Language switching */
+        .lang-content {
+            display: none;
         }
 
-        header {
-            background: #222;
-            color: #fff;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        nav a {
-            color: #fff;
-            margin-left: 1rem;
-            text-decoration: none;
-        }
-
-        .lang-switch {
-            cursor: pointer;
-            font-weight: bold;
-            padding: 5px;
-            transition: transform 0.2s;
-        }
-
-        .lang-switch:hover {
-            transform: scale(1.1);
-        }
-
-        main {
-            padding: 2rem;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #444;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 0.5rem;
-        }
-
-        ul {
-            padding-left: 1rem;
-            list-style: none;
-        }
-
-        ul li {
-            margin: 10px 0;
-        }
-
-        a {
-            color: #0056b3;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        a:hover {
-            color: #003d82;
-        }
-
-        .sql-icon {
-            color: #0056b3;
-            margin-right: 10px;
-        }
-
-        .github-link {
-            display: inline-block;
-            margin-top: 30px;
-            background: #24292e;
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        .github-link i {
-            margin-right: 8px;
-        }
-
-        .github-link:hover {
-            background: #444;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #007BFF;
-            text-decoration: none;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        code {
-            background: #eee;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        pre {
-            background: #f1f1f1;
-            padding: 10px;
-            border-radius: 6px;
-            overflow-x: auto;
-        }
-
-        img.zoomable {
+        .lang-content.active {
             display: block;
-            margin-bottom: 20px;
-            max-width: 400px;
-            width: 100%;
-            border-radius: 6px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            main {
+                padding: 1rem 0.5rem;
+            }
+
+            section {
+                padding: 1.2rem;
+            }
         }
 
         @media (max-width: 600px) {
@@ -173,187 +234,17 @@
             section {
                 padding: 1rem;
             }
+
+            .zoomable.zoomed {
+                transform: scale(1.5);
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>
-            <i class="fas fa-database sql-icon"></i>
-            <span data-lang-en="Website Traffic Analysis (SQL)" data-lang-ua="Аналіз трафіку сайту (SQL)">Website
-                Traffic Analysis (SQL)</span>
-        </h1>
-        <nav>
-            <span class="lang-switch" onclick="switchLang('en')">🇬🇧</span>
-            <span class="lang-switch" onclick="switchLang('ua')">🇺🇦</span>
-        </nav>
-    </header>
-    <main>
-        <a href="../../index.html#sql-project" class="back-link" data-lang-en="← Back to Portfolio"
-            data-lang-ua="← Назад до портфоліо">← Back to Portfolio</a>
-        <!-- ENGLISH CONTENT -->
-        <section class="lang-content en active">
-            <h2>Description</h2>
-            <p>
-                This project analyzes website user behavior using SQL queries. It explores traffic sources, user
-                activity, engagement, and returning visits.
-            </p>
-            <h2>Data Structure</h2>
-            <ul>
-                <li><strong>users</strong> (id, name, city, signup_date) — user info</li>
-                <li><strong>sessions</strong> (id, user_id, session_start, session_duration, events_count) — user
-                    sessions</li>
-                <li><strong>traffic_sources</strong> (user_id, traffic_source) — traffic sources</li>
-                <li><strong>events</strong> (id, session_id, event_type, event_time) — user events</li>
-            </ul>
-            <h2>SQL Queries</h2>
-            <h3>1. Active users per day</h3>
-            <pre><code>SELECT DATE(session_start) AS date, COUNT(DISTINCT user_id) AS active_users
-FROM sessions
-GROUP BY DATE(session_start)
-ORDER BY date;</code></pre>
-            <h3>2. Traffic sources</h3>
-            <pre><code>SELECT traffic_source, COUNT(DISTINCT user_id) AS user_count
-FROM traffic_sources
-GROUP BY traffic_source
-ORDER BY user_count DESC;</code></pre>
-            <h3>3. Average session duration</h3>
-            <pre><code>SELECT AVG(session_duration) AS avg_duration
-FROM sessions;</code></pre>
-            <h3>4. Bounce rate</h3>
-            <pre><code>SELECT
-  (SUM(CASE WHEN events_count = 1 THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS bounce_rate
-FROM sessions;</code></pre>
-            <h3>5. Returning visits</h3>
-            <pre><code>SELECT user_id, COUNT(*) AS visit_count
-FROM sessions
-GROUP BY user_id
-HAVING visit_count > 1;</code></pre>
-            <h2>Insights</h2>
-            <p>
-                Most users come from organic search. The average session duration is around 3 minutes. Bounce rate is
-                45%.
-            </p>
-            <h2>Results</h2>
-            <div>
-                <h4>Active users per day</h4>
-                <img class="zoomable" src="results/Active users per day.png" alt="Active users per day">
-                <h4>Traffic sources</h4>
-                <img class="zoomable" src="results/Traffic sources.png" alt="Traffic sources">
-                <h4>Average session duration</h4>
-                <img class="zoomable" src="results/Average session duration.png" alt="Average session duration">
-                <h4>Bounce rate</h4>
-                <img class="zoomable" src="results/Bounce rate.png" alt="Bounce rate">
-                <h4>Returning visits</h4>
-                <img class="zoomable" src="results/Returning visits.png" alt="Returning visits">
-                <h4>Database structure</h4>
-                <img class="zoomable" src="results/database structure.png" alt="Database structure">
-            </div>
-            <a class="github-link" href="https://github.com/zaburdaev/zaburdaev.github.io/tree/main/projects/sql"
-                target="_blank">
-                <i class="fab fa-github"></i>View on GitHub
-            </a>
-        </section>
-        <!-- UKRAINIAN CONTENT -->
-        <section class="lang-content ua">
-            <h2>Опис</h2>
-            <p>
-                Цей проєкт присвячений аналізу поведінки користувачів на сайті за допомогою SQL-запитів. Досліджуються
-                джерела трафіку, активність користувачів, залученість та повторні візити.
-            </p>
-            <h2>Структура даних</h2>
-            <ul>
-                <li><strong>users</strong> (id, name, city, signup_date) — інформація про користувачів</li>
-                <li><strong>sessions</strong> (id, user_id, session_start, session_duration, events_count) — сесії
-                    користувачів</li>
-                <li><strong>traffic_sources</strong> (user_id, traffic_source) — джерела трафіку</li>
-                <li><strong>events</strong> (id, session_id, event_type, event_time) — дії користувачів</li>
-            </ul>
-            <h2>SQL-запити</h2>
-            <h3>1. Активні користувачі по днях</h3>
-            <pre><code>SELECT DATE(session_start) AS date, COUNT(DISTINCT user_id) AS active_users
-FROM sessions
-GROUP BY DATE(session_start)
-ORDER BY date;</code></pre>
-            <h3>2. Джерела трафіку</h3>
-            <pre><code>SELECT traffic_source, COUNT(DISTINCT user_id) AS user_count
-FROM traffic_sources
-GROUP BY traffic_source
-ORDER BY user_count DESC;</code></pre>
-            <h3>3. Середня тривалість сесії</h3>
-            <pre><code>SELECT AVG(session_duration) AS avg_duration
-FROM sessions;</code></pre>
-            <h3>4. Відсоток відмов (bounce rate)</h3>
-            <pre><code>SELECT
-  (SUM(CASE WHEN events_count = 1 THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS bounce_rate
-FROM sessions;</code></pre>
-            <h3>5. Повторні візити</h3>
-            <pre><code>SELECT user_id, COUNT(*) AS visit_count
-FROM sessions
-GROUP BY user_id
-HAVING visit_count > 1;</code></pre>
-            <h2>Висновки</h2>
-            <p>
-                Більшість користувачів надходять з органічного пошуку. Середня тривалість сесії — близько 3 хвилин.
-                Відсоток відмов — 45%.
-            </p>
-            <h2>Результати</h2>
-            <div>
-                <h4>Активні користувачі по днях</h4>
-                <img class="zoomable" src="results/Active users per day.png" alt="Активні користувачі по днях">
-                <h4>Джерела трафіку</h4>
-                <img class="zoomable" src="results/Traffic sources.png" alt="Джерела трафіку">
-                <h4>Середня тривалість сесії</h4>
-                <img class="zoomable" src="results/Average session duration.png" alt="Середня тривалість сесії">
-                <h4>Відсоток відмов</h4>
-                <img class="zoomable" src="results/Bounce rate.png" alt="Відсоток відмов">
-                <h4>Повторні візити</h4>
-                <img class="zoomable" src="results/Returning visits.png" alt="Повторні візити">
-                <h4>Структура бази</h4>
-                <img class="zoomable" src="results/database structure.png" alt="Структура бази">
-            </div>
-            <a class="github-link" href="https://github.com/zaburdaev/zaburdaev.github.io/tree/main/projects/sql"
-                target="_blank">
-                <i class="fab fa-github"></i>Дивитись на GitHub
-            </a>
-        </section>
-    </main>
-    <script>
-        // Языковой скрипт + зум для картинок
-        function switchLang(lang) {
-            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('[data-lang-en], [data-lang-ua]').forEach(el => {
-                if (lang === 'en' && el.hasAttribute('data-lang-en')) {
-                    el.textContent = el.getAttribute('data-lang-en');
-                }
-                if (lang === 'ua' && el.hasAttribute('data-lang-ua')) {
-                    el.textContent = el.getAttribute('data-lang-ua');
-                }
-            });
-            document.querySelector(`.lang-content.${lang}`).classList.add('active');
-            localStorage.setItem('lang', lang);
-        }
-        window.onload = function () {
-            const savedLang = localStorage.getItem('lang') || 'en';
-            switchLang(savedLang);
-
-            // Зум для картинок
-            document.querySelectorAll('.zoomable').forEach(img => {
-                img.addEventListener('click', function () {
-                    if (img.classList.contains('zoomed')) {
-                        img.classList.remove('zoomed');
-                    } else {
-                        // Сначала убрать зум у других
-                        document.querySelectorAll('.zoomable.zoomed').forEach(other => {
-                            other.classList.remove('zoomed');
-                        });
-                        img.classList.add('zoomed');
-                    }
-                });
-            });
-        };
-    </script>
+    <!-- Остальной HTML-код остаётся тем же -->
+    <!-- Просто замените весь CSS между <style> и </style> на код выше -->
 </body>
 
 </html>
