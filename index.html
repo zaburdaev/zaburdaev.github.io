@@ -107,42 +107,13 @@
       text-decoration: underline;
     }
 
-    .tech-stack li i {
-      width: 25px;
-      margin-right: 10px;
-      color: #6366f1;
-      font-size: 1.2rem;
-    }
-
-    .contacts i {
-      width: 25px;
-      color: #6366f1;
-      font-size: 1.2rem;
-      margin-right: 8px;
-    }
-
-    .project-link {
-      display: inline-block;
-      padding: 8px 18px;
-      background: linear-gradient(90deg, #f1f5fd 60%, #e0e7ef 100%);
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.07);
-      transition: background 0.2s, transform 0.2s;
-      font-size: 1.01rem;
-      margin-left: 8px;
-    }
-
-    .project-link:hover {
-      background: linear-gradient(90deg, #e0e7ef 60%, #f1f5fd 100%);
-      transform: scale(1.04);
-      color: #3b82f6;
-    }
-
-    .about-container {
+    /* About Me + Resume */
+    .about-flex {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 2.5rem;
       flex-wrap: wrap;
+      justify-content: flex-start;
     }
 
     .about-photo {
@@ -152,12 +123,143 @@
       object-fit: cover;
       border: 4px solid #e0e7ef;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      flex-shrink: 0;
     }
 
-    .about-container p {
+    .about-info {
+      flex: 1 1 220px;
+      min-width: 180px;
+    }
+
+    .about-info p {
       font-size: 1.08rem;
       color: #444;
-      margin: 0;
+      margin: 0 0 12px 0;
+    }
+
+    .resume-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-left: auto;
+      min-width: 170px;
+    }
+
+    .resume-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      background: linear-gradient(90deg, #6366f1 30%, #3b82f6 100%);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.13);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .resume-btn:hover {
+      background: linear-gradient(90deg, #3b82f6 30%, #6366f1 100%);
+      transform: scale(1.04);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .about-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+      }
+
+      .resume-btns {
+        flex-direction: row;
+        gap: 12px;
+        margin-left: 0;
+        margin-top: 10px;
+        min-width: 0;
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .about-photo {
+        width: 90px;
+        height: 90px;
+      }
+
+      .about-info p {
+        font-size: 0.98rem;
+      }
+
+      .resume-btn {
+        font-size: 0.97rem;
+        padding: 10px 10px;
+      }
+    }
+
+    /* Tech Stack плитка */
+    .tech-stack-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: flex-start;
+      margin-bottom: 0;
+    }
+
+    .tech-card {
+      background: linear-gradient(120deg, #f1f5fd 60%, #e0e7ef 100%);
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.07);
+      padding: 18px 22px;
+      min-width: 90px;
+      min-height: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+      font-size: 1.05rem;
+      font-weight: 500;
+      cursor: pointer;
+      color: #222;
+      text-align: center;
+    }
+
+    .tech-card i {
+      font-size: 1.7rem;
+      margin-bottom: 6px;
+      color: #6366f1;
+    }
+
+    .tech-card:hover {
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.13);
+      transform: translateY(-3px) scale(1.04);
+      color: #3b82f6;
+    }
+
+    .tech-card .tech-link {
+      color: inherit;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (max-width: 700px) {
+      .tech-stack-grid {
+        gap: 10px;
+      }
+
+      .tech-card {
+        min-width: 70px;
+        padding: 12px 8px;
+      }
     }
 
     /* Dropdown стили */
@@ -195,50 +297,30 @@
       transition: transform 0.2s;
     }
 
-    /* Resume & Cover Letter */
-    .resume-list li i {
-      color: #6366f1;
-      margin-right: 10px;
-      font-size: 1.1rem;
+    /* Projects & Contacts */
+    .project-link {
+      display: inline-block;
+      padding: 8px 18px;
+      background: linear-gradient(90deg, #f1f5fd 60%, #e0e7ef 100%);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.07);
+      transition: background 0.2s, transform 0.2s;
+      font-size: 1.01rem;
+      margin-left: 8px;
     }
 
-    /* Contacts */
+    .project-link:hover {
+      background: linear-gradient(90deg, #e0e7ef 60%, #f1f5fd 100%);
+      transform: scale(1.04);
+      color: #3b82f6;
+    }
+
     .contacts p {
       margin: 10px 0;
       font-size: 1.05rem;
       display: flex;
       align-items: center;
       gap: 8px;
-    }
-
-    /* Адаптивность */
-    @media (max-width: 900px) {
-      main {
-        padding: 1rem 0.5rem;
-      }
-
-      section {
-        padding: 1.2rem 0.7rem 1rem 0.7rem;
-      }
-
-      .about-container {
-        gap: 1rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .about-container {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      main {
-        padding: 0.5rem;
-      }
-
-      section {
-        padding: 0.7rem 0.2rem 0.7rem 0.2rem;
-      }
     }
   </style>
 </head>
@@ -255,61 +337,65 @@
   <main>
     <section>
       <h2 data-lang-en="About Me" data-lang-ua="Про мене">About Me</h2>
-      <div class="about-container">
+      <div class="about-flex">
         <img src="assets/images/1696615033270.jpeg" alt="Profile photo" class="about-photo" />
-        <p data-lang-en="I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio."
-          data-lang-ua="Я QA-інженер, який переходить у напрямок системної архітектури та створює портфоліо фулстек-розробника.">
-          I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio.
-        </p>
+        <div class="about-info">
+          <p data-lang-en="I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio."
+            data-lang-ua="Я QA-інженер, який переходить у напрямок системної архітектури та створює портфоліо фулстек-розробника.">
+            I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio.
+          </p>
+        </div>
+        <div class="resume-btns">
+          <a class="resume-btn" href="cv.pdf" target="_blank" data-lang-en="Download CV"
+            data-lang-ua="Завантажити резюме">
+            <i class="far fa-file-pdf"></i>
+            <span>Download CV</span>
+          </a>
+          <a class="resume-btn" href="cover-letter.pdf" target="_blank" data-lang-en="Download Cover Letter"
+            data-lang-ua="Завантажити супровідний лист">
+            <i class="far fa-file-alt"></i>
+            <span>Download Cover Letter</span>
+          </a>
+        </div>
       </div>
     </section>
 
     <section>
       <h2 data-lang-en="Tech Stack" data-lang-ua="Технології">Tech Stack</h2>
-      <ul class="tech-stack">
-        <li>
-          <a href="#sql-project"><i class="fas fa-database"></i>
-            <span data-lang-en="SQL" data-lang-ua="SQL">SQL</span></a>
-        </li>
-        <li>
-          <a href="#htmlcss-projects" id="htmlcss-link">
-            <i class="fab fa-html5"></i><i class="fab fa-css3-alt"></i>
+      <div class="tech-stack-grid">
+        <div class="tech-card">
+          <a href="#sql-project" class="tech-link">
+            <i class="fas fa-database"></i>
+            <span data-lang-en="SQL" data-lang-ua="SQL">SQL</span>
+          </a>
+        </div>
+        <div class="tech-card" id="htmlcss-link">
+          <a href="#htmlcss-projects" class="tech-link">
+            <span>
+              <i class="fab fa-html5"></i>
+              <i class="fab fa-css3-alt"></i>
+            </span>
             <span data-lang-en="HTML / CSS" data-lang-ua="HTML / CSS">HTML / CSS</span>
           </a>
-        </li>
-        <li>
+        </div>
+        <div class="tech-card">
           <i class="fab fa-js"></i>
           <span data-lang-en="JavaScript" data-lang-ua="JavaScript">JavaScript</span>
-        </li>
-        <li>
+        </div>
+        <div class="tech-card">
           <i class="fab fa-java"></i>
           <span data-lang-en="Java" data-lang-ua="Java">Java</span>
-        </li>
-        <li>
+        </div>
+        <div class="tech-card">
           <i class="fas fa-vial"></i>
           <span data-lang-en="QA (Manual & Automation)" data-lang-ua="QA (мануальне та автоматизоване тестування)">QA
             (Manual & Automation)</span>
-        </li>
-        <li>
+        </div>
+        <div class="tech-card">
           <i class="fas fa-robot"></i>
           <span data-lang-en="Selenium" data-lang-ua="Selenium">Selenium</span>
-        </li>
-      </ul>
-    </section>
-
-    <section>
-      <h2 data-lang-en="Resume & Cover Letter" data-lang-ua="Резюме та супровідний лист">Resume & Cover Letter</h2>
-      <ul class="resume-list">
-        <li>
-          <i class="far fa-file-pdf"></i>
-          <a href="cv.pdf" target="_blank" data-lang-en="Download CV" data-lang-ua="Завантажити резюме">Download CV</a>
-        </li>
-        <li>
-          <i class="far fa-file-alt"></i>
-          <a href="cover-letter.pdf" target="_blank" data-lang-en="Download Cover Letter"
-            data-lang-ua="Завантажити супровідний лист">Download Cover Letter</a>
-        </li>
-      </ul>
+        </div>
+      </div>
     </section>
 
     <section>
