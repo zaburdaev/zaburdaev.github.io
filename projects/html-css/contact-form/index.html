@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-lang-en="Contact Me" data-lang-ua="Зв'язок зі мною">Contact Me</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 data-lang-en="Contact Me" data-lang-ua="Зв'язок зі мною">Contact Me</h1>
+        <nav>
+            <span class="lang-switch" onclick="switchLang('en')">🇬🇧</span>
+            <span class="lang-switch" onclick="switchLang('ua')">🇺🇦</span>
+        </nav>
+    </header>
+    <main>
+        <a href="/index.html" class="back-link" data-lang-en="← Back to Portfolio" data-lang-ua="← Назад до портфоліо">
+            ← Back to Portfolio
+        </a>
+        <section class="contact-section">
+            <form class="contact-form" autocomplete="off">
+                <div class="form-group">
+                    <label for="name" data-lang-en="Name" data-lang-ua="Ім'я">Name<span>*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="Your name" />
+                </div>
+                <div class="form-group">
+                    <label for="email" data-lang-en="Email" data-lang-ua="Пошта">Email<span>*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com" />
+                </div>
+                <div class="form-group">
+                    <label for="message" data-lang-en="Message"
+                        data-lang-ua="Повідомлення">Message<span>*</span></label>
+                    <textarea id="message" name="message" required placeholder="Type your message..."></textarea>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="policy" name="policy" required />
+                    <label for="policy" class="checkbox-label" data-lang-en="I agree with the "
+                        data-lang-ua="Я погоджуюсь з ">
+                        <span data-lang-en="I agree with the " data-lang-ua="Я погоджуюсь з ">I agree with the </span>
+                        <a href="#">privacy policy</a><span>*</span>
+                    </label>
+                </div>
+                <button type="submit" class="submit-btn" data-lang-en="Send" data-lang-ua="Відправити">Send</button>
+            </form>
+        </section>
+    </main>
+    <script>
+        // Language switching
+        function switchLang(lang) {
+            document.querySelectorAll('[data-lang-en], [data-lang-ua]').forEach(el => {
+                if (lang === 'en' && el.hasAttribute('data-lang-en')) {
+                    el.textContent = el.getAttribute('data-lang-en');
+                }
+                if (lang === 'ua' && el.hasAttribute('data-lang-ua')) {
+                    el.textContent = el.getAttribute('data-lang-ua');
+                }
+            });
+            // Меняем title страницы
+            if (lang === 'en') {
+                document.title = document.querySelector('title').getAttribute('data-lang-en');
+            } else {
+                document.title = document.querySelector('title').getAttribute('data-lang-ua');
+            }
+            localStorage.setItem('lang', lang);
+        }
+        window.onload = function () {
+            const savedLang = localStorage.getItem('lang') || 'en';
+            switchLang(savedLang);
+        };
+    </script>
+</body>
+
+</html>
