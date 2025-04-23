@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Thank you!</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main>
+        <section class="contact-section" style="text-align:center;">
+            <h1>Thank you!</h1>
+            <p data-lang-en="Your message has been sent to Vitaliy Zaburdaev."
+                data-lang-ua="Ви надіслали повідомлення Віталію Забурдаєву.">
+                Your message has been sent to Vitaliy Zaburdaev.<br>
+                <span style="color:#6366f1;">Ви надіслали повідомлення Віталію Забурдаєву.</span>
+            </p>
+            <a href="/index.html" class="back-link" data-lang-en="← Back to Portfolio"
+                data-lang-ua="← Назад до портфоліо">
+                ← Back to Portfolio
+            </a>
+        </section>
+    </main>
+    <script>
+        // Language switching
+        function switchLang(lang) {
+            document.querySelectorAll('[data-lang-en], [data-lang-ua]').forEach(el => {
+                if (lang === 'en' && el.hasAttribute('data-lang-en')) {
+                    el.textContent = el.getAttribute('data-lang-en');
+                }
+                if (lang === 'ua' && el.hasAttribute('data-lang-ua')) {
+                    el.textContent = el.getAttribute('data-lang-ua');
+                }
+            });
+            if (lang === 'en') {
+                document.title = "Thank you!";
+            } else {
+                document.title = "Дякую!";
+            }
+            localStorage.setItem('lang', lang);
+        }
+        window.onload = function () {
+            const savedLang = localStorage.getItem('lang') || 'en';
+            switchLang(savedLang);
+        };
+    </script>
+</body>
+
+</html>

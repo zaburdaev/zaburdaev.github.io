@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-lang-en="Contact Me" data-lang-ua="Зв'язок зі мною">Contact Me</title>
+    <title data-lang-en="Write Me" data-lang-ua="Напиши мені">Write Me</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1 data-lang-en="Contact Me" data-lang-ua="Зв'язок зі мною">Contact Me</h1>
+        <h1 data-lang-en="Write Me" data-lang-ua="Напиши мені">Write Me</h1>
         <nav>
             <span class="lang-switch" onclick="switchLang('en')">🇬🇧</span>
             <span class="lang-switch" onclick="switchLang('ua')">🇺🇦</span>
@@ -22,7 +22,10 @@
             ← Back to Portfolio
         </a>
         <section class="contact-section">
-            <form class="contact-form" autocomplete="off">
+            <form class="contact-form" autocomplete="off" action="https://formspree.io/f/movdqnnq" method="POST">
+                <input type="hidden" name="_subject" value="New message from portfolio site!">
+                <input type="hidden" name="_next"
+                    value="https://zaburdaev.github.io/projects/html-css/contact-form/thanks.html">
                 <div class="form-group">
                     <label for="name" data-lang-en="Name" data-lang-ua="Ім'я">Name<span>*</span></label>
                     <input type="text" id="name" name="name" required placeholder="Your name" />
@@ -38,8 +41,7 @@
                 </div>
                 <div class="form-group checkbox-group">
                     <input type="checkbox" id="policy" name="policy" required />
-                    <label for="policy" class="checkbox-label" data-lang-en="I agree with the "
-                        data-lang-ua="Я погоджуюсь з ">
+                    <label for="policy" class="checkbox-label">
                         <span data-lang-en="I agree with the " data-lang-ua="Я погоджуюсь з ">I agree with the </span>
                         <a href="#">privacy policy</a><span>*</span>
                     </label>
