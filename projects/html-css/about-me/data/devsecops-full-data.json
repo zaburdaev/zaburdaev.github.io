@@ -1,0 +1,146 @@
+[
+  {
+    "symbol": "Aj",
+    "name": "Atlassian Jira",
+    "category": "EAP",
+    "description": "Project management and agile planning."
+  },
+  {
+    "symbol": "Gh",
+    "name": "GitHub",
+    "category": "SCM",
+    "description": "Source control management and collaboration."
+  },
+  {
+    "symbol": "Dd",
+    "name": "Datadog",
+    "category": "Monitoring",
+    "description": "Cloud-scale monitoring and analytics."
+  },
+  {
+    "symbol": "Ac",
+    "name": "Atlassian Confluence",
+    "category": "Collaboration",
+    "description": "Team collaboration and documentation."
+  },
+  {
+    "symbol": "Dk",
+    "name": "Docker",
+    "category": "Container",
+    "description": "Containerization platform."
+  },
+  {
+    "symbol": "Ku",
+    "name": "Kubernetes",
+    "category": "Orchestration",
+    "description": "Container orchestration system."
+  },
+  {
+    "symbol": "Tr",
+    "name": "Travis CI",
+    "category": "CI",
+    "description": "Continuous integration platform."
+  },
+  {
+    "symbol": "Jn",
+    "name": "Jenkins",
+    "category": "CI",
+    "description": "Automation server for CI/CD."
+  },
+  {
+    "symbol": "Np",
+    "name": "npm",
+    "category": "Package",
+    "description": "JavaScript package manager."
+  },
+  {
+    "symbol": "Se",
+    "name": "Selenium",
+    "category": "Testing",
+    "description": "Automated browser testing framework."
+  },
+  {
+    "symbol": "Cx",
+    "name": "Checkmarx",
+    "category": "Security",
+    "description": "Static application security testing (SAST)."
+  },
+  {
+    "symbol": "Dac",
+    "name": "Digital.ai Testing",
+    "category": "Testing",
+    "description": "End-to-end software testing solution."
+  },
+  {
+    "symbol": "Azp",
+    "name": "Azure DevOps Pipelines",
+    "category": "CI",
+    "description": "CI/CD service from Microsoft."
+  },
+  {
+    "symbol": "Acf",
+    "name": "AWS CloudFormation",
+    "category": "Deployment",
+    "description": "Infrastructure as Code for AWS."
+  },
+  {
+    "symbol": "Ht",
+    "name": "Terraform",
+    "category": "Deployment",
+    "description": "IaC tool for provisioning infrastructure."
+  },
+  {
+    "symbol": "Acp",
+    "name": "AWS CodePipeline",
+    "category": "Deployment",
+    "description": "Continuous delivery service."
+  },
+  {
+    "symbol": "Rha",
+    "name": "Red Hat Ansible",
+    "category": "Deployment",
+    "description": "Configuration management tool."
+  },
+  {
+    "symbol": "Azk",
+    "name": "Azure AKS",
+    "category": "PaaS",
+    "description": "Managed Kubernetes in Azure."
+  },
+  {
+    "symbol": "Ak",
+    "name": "Amazon EKS",
+    "category": "PaaS",
+    "description": "Managed Kubernetes service from AWS."
+  },
+  {
+    "symbol": "Ur",
+    "name": "UrbanCode Release",
+    "category": "Release",
+    "description": "Release management solution."
+  },
+  {
+    "symbol": "Rf",
+    "name": "Redgate Flyway",
+    "category": "Database",
+    "description": "Version control for databases."
+  },
+  {
+    "symbol": "Gc",
+    "name": "Google Cloud",
+    "category": "Cloud",
+    "description": "Google's cloud services platform."
+  },
+  {
+    "symbol": "Aws",
+    "name": "AWS",
+    "category": "Cloud",
+    "description": "Amazon Web Services."
+  },
+  {
+    "symbol": "Pvz",
+    "name": "Planview Viz",
+    "category": "VSM",
+    "description": "Value stream management analytics."
+  }
+]
