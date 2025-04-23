@@ -330,18 +330,16 @@
         </nav>
     </header>
     <main>
-        <a href="../../index.html#about-me" class="back-link" data-lang-en="← Back to Portfolio"
+        <a href="https://zaburdaev.github.io/index.html" class="back-link" data-lang-en="← Back to Portfolio"
             data-lang-ua="← Назад до портфоліо">
             ← Back to Portfolio
         </a>
         <section>
             <div class="about-flex">
-                <img src="../../assets/images/169661503270.jpeg" alt="Profile photo" class="about-photo" />
+                <img src="https://zaburdaev.github.io/assets/images/1696615033270.jpeg" alt="Profile photo"
+                    class="about-photo" />
                 <div class="about-info">
-                    <p data-lang-en="I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio."
-                        data-lang-ua="Я QA-інженер, який переходить у напрямок системної архітектури та створює портфоліо фулстек-розробника.">
-                        I'm a QA Engineer transitioning into System Architecture, building my fullstack portfolio.
-                    </p>
+                    <p data-lang-en="Developer" data-lang-ua="Розробник">Developer</p>
                 </div>
                 <div class="resume-btns">
                     <a class="resume-btn" href="cv.pdf" target="_blank" data-lang-en="Download CV"
@@ -416,7 +414,7 @@
             const savedLang = localStorage.getItem('lang') || 'en';
             switchLang(savedLang);
             updateCategoryOptions();
-            fetch("../../data/devsecops-full-120.json")
+            fetch("https://zaburdaev.github.io/data/devsecops-full-120.json")
                 .then(res => res.json())
                 .then(data => {
                     elements = data;
