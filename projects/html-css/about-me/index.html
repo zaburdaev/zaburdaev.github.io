@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Me | Vitaliy Zaburdaev</title>
+    <title data-lang-en="About Me | Vitaliy Zaburdaev" data-lang-ua="Про мене | Віталій Забурдаєв">About Me | Vitaliy
+        Zaburdaev</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -15,8 +16,41 @@
             color: #222;
         }
 
+        header {
+            background: #222;
+            color: #fff;
+            padding: 1rem 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lang-switch {
+            cursor: pointer;
+            font-weight: bold;
+            padding: 5px;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .lang-switch:hover {
+            transform: scale(1.1);
+        }
+
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 40px auto;
             background: #fff;
             border-radius: 24px;
@@ -35,7 +69,7 @@
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
         }
 
-        h1 {
+        h1.page-title {
             font-size: 2.2rem;
             font-weight: 700;
             margin: 0 0 8px 0;
@@ -56,23 +90,6 @@
             color: #555;
             font-size: 1.05rem;
             margin-bottom: 28px;
-        }
-
-        .socials {
-            margin-bottom: 32px;
-        }
-
-        .socials a {
-            display: inline-block;
-            margin: 0 10px;
-            color: #6366f1;
-            font-size: 1.5rem;
-            transition: color 0.2s, transform 0.2s;
-        }
-
-        .socials a:hover {
-            color: #3b82f6;
-            transform: scale(1.15);
         }
 
         .skills {
@@ -112,27 +129,28 @@
             transform: translateY(-3px) scale(1.04);
         }
 
-        .facts {
-            margin: 32px 0 24px 0;
-            text-align: left;
+        .devops-table-block {
+            margin: 36px 0 24px 0;
+            text-align: center;
         }
 
-        .facts-title {
-            font-weight: 600;
-            color: #6366f1;
+        .devops-table-block img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(99, 102, 241, 0.10);
             margin-bottom: 10px;
-            font-size: 1.1rem;
         }
 
-        .facts ul {
-            margin: 0;
-            padding-left: 20px;
-            color: #444;
+        .cv-btns {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 18px;
+            flex-wrap: wrap;
         }
 
         .cv-btn {
             display: inline-block;
-            margin-top: 18px;
             padding: 12px 28px;
             background: linear-gradient(90deg, #6366f1 30%, #3b82f6 100%);
             color: #fff;
@@ -150,6 +168,21 @@
             transform: scale(1.04);
         }
 
+        .back-link {
+            display: inline-block;
+            margin: 0 0 24px 0;
+            color: #6366f1;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #3b82f6;
+            text-decoration: underline;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 18px 6px 18px 6px;
@@ -163,24 +196,34 @@
                 min-width: 70px;
                 padding: 12px 8px;
             }
+
+            .cv-btns {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <header>
+        <h1 data-lang-en="About Me" data-lang-ua="Про мене">About Me</h1>
+        <nav>
+            <span class="lang-switch" onclick="switchLang('en')">🇬🇧</span>
+            <span class="lang-switch" onclick="switchLang('ua')">🇺🇦</span>
+        </nav>
+    </header>
     <div class="container">
+        <a href="../../../index.html" class="back-link" data-lang-en="← Back to Portfolio"
+            data-lang-ua="← Назад до портфоліо">← Back to Portfolio</a>
         <img src="../../../assets/images/1696615033270.jpeg" alt="Profile photo" class="avatar" />
-        <h1>Vitaliy Zaburdaev</h1>
-        <div class="role">QA Engineer &amp; Future System Architect</div>
-        <div class="desc">
-            I love clean code, beautiful interfaces, and building robust systems.<br>
-            Currently transitioning from QA to System Architecture and Fullstack Development.
-        </div>
-        <div class="socials">
-            <a href="mailto:zaburdaev.vitaliy@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/zaburdaev" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/vitalii-zaburdaiev/" target="_blank" title="LinkedIn"><i
-                    class="fab fa-linkedin"></i></a>
+        <h1 class="page-title" data-lang-en="Vitaliy Zaburdaev" data-lang-ua="Віталій Забурдаєв">Vitaliy Zaburdaev</h1>
+        <div class="role" data-lang-en="Developer" data-lang-ua="Розробник">Developer</div>
+        <div class="desc"
+            data-lang-en="I love clean code, beautiful interfaces, and building robust systems. Currently focused on DevOps, System Architecture, and Fullstack Development."
+            data-lang-ua="Люблю чистий код, красиві інтерфейси та створення надійних систем. Зараз зосереджений на DevOps, системній архітектурі та фулстек-розробці.">
+            I love clean code, beautiful interfaces, and building robust systems. Currently focused on DevOps, System
+            Architecture, and Fullstack Development.
         </div>
         <div class="skills">
             <div class="skill-card"><i class="fab fa-html5"></i><span>HTML5</span></div>
@@ -188,19 +231,61 @@
             <div class="skill-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
             <div class="skill-card"><i class="fas fa-database"></i><span>SQL</span></div>
             <div class="skill-card"><i class="fab fa-java"></i><span>Java</span></div>
-            <div class="skill-card"><i class="fas fa-vial"></i><span>QA</span></div>
-            <div class="skill-card"><i class="fas fa-robot"></i><span>Selenium</span></div>
+            <div class="skill-card"><i class="fas fa-robot"></i><span>DevOps</span></div>
+            <div class="skill-card"><i class="fas fa-vial"></i><span>Testing</span></div>
         </div>
-        <div class="facts">
-            <div class="facts-title">A few facts about me:</div>
-            <ul>
-                <li>Automates everything possible (and impossible)</li>
-                <li>Writes SQL queries in his sleep</li>
-                <li>Climbed 3 mountains and counting</li>
-            </ul>
+        <div class="devops-table-block">
+            <div class="devops-table-title" data-lang-en="Periodic Table of DevOps Tools"
+                data-lang-ua="Періодична таблиця DevOps-інструментів"
+                style="font-weight:600; color:#6366f1; font-size:1.15rem; margin-bottom:10px;">
+                Periodic Table of DevOps Tools
+            </div>
+            <!-- Используем изображение таблицы, чтобы не тянуть сложный интерактив -->
+            <a href="https://digital.ai/learn/devsecops-periodic-table/" target="_blank">
+                <img src="https://digital.ai/wp-content/uploads/2023/11/RC-TN-DO-2023-11-accelerate-state-of-devops-report.png"
+                    alt="Periodic Table of DevOps Tools" />
+            </a>
+            <div style="font-size:0.95rem; color:#888; margin-top:4px;"
+                data-lang-en="Click to explore the interactive table"
+                data-lang-ua="Натисніть, щоб переглянути інтерактивну таблицю">
+                Click to explore the interactive table
+            </div>
         </div>
-        <a class="cv-btn" href="../../../cv.pdf" target="_blank"><i class="far fa-file-pdf"></i> Download CV</a>
+        <div class="cv-btns">
+            <a class="cv-btn" href="../../../cv.pdf" target="_blank" data-lang-en="Download CV"
+                data-lang-ua="Завантажити резюме">
+                <i class="far fa-file-pdf"></i> <span>Download CV</span>
+            </a>
+            <a class="cv-btn" href="../../../cover-letter.pdf" target="_blank" data-lang-en="Download Cover Letter"
+                data-lang-ua="Завантажити супровідний лист">
+                <i class="far fa-file-alt"></i> <span>Download Cover Letter</span>
+            </a>
+        </div>
     </div>
+    <script>
+        function switchLang(lang) {
+            // Переключаем все элементы с data-lang-en/data-lang-ua
+            document.querySelectorAll('[data-lang-en], [data-lang-ua]').forEach(el => {
+                if (lang === 'en' && el.hasAttribute('data-lang-en')) {
+                    el.textContent = el.getAttribute('data-lang-en');
+                }
+                if (lang === 'ua' && el.hasAttribute('data-lang-ua')) {
+                    el.textContent = el.getAttribute('data-lang-ua');
+                }
+            });
+            // Меняем title страницы
+            if (lang === 'en') {
+                document.title = document.querySelector('title').getAttribute('data-lang-en');
+            } else {
+                document.title = document.querySelector('title').getAttribute('data-lang-ua');
+            }
+            localStorage.setItem('lang', lang);
+        }
+        window.onload = function () {
+            const savedLang = localStorage.getItem('lang') || 'en';
+            switchLang(savedLang);
+        };
+    </script>
 </body>
 
 </html>
