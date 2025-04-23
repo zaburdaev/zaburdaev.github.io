@@ -412,7 +412,7 @@
             const savedLang = localStorage.getItem('lang') || 'en';
             switchLang(savedLang);
             updateCategoryOptions();
-            fetch("projects/html-css/about-me/data/devsecops-full-120.json")
+            fetch("/projects/html-css/about-me/data/devsecops-full-120.json")
                 .then(res => res.json())
                 .then(data => {
                     elements = data;
