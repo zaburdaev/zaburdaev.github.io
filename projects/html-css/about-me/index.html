@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Про мене</title>
+    <title data-lang-en="About Me" data-lang-ua="Про мене">About Me</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        /* Базовые стили */
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
@@ -16,7 +16,6 @@
             color: #222;
         }
 
-        /* Header */
         header {
             background: linear-gradient(90deg, #a78bfa 0%, #6366f1 100%);
             color: #fff;
@@ -39,7 +38,6 @@
             transform: scale(1.1);
         }
 
-        /* Main content */
         main {
             max-width: 1200px;
             margin: 2rem auto;
@@ -54,13 +52,78 @@
             box-shadow: 0 8px 32px rgba(99, 102, 241, 0.08);
         }
 
+        .about-block {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.13);
+            border: 4px solid #a78bfa;
+        }
+
+        .about-info {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .about-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-role {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #a78bfa;
+            margin-bottom: 1rem;
+        }
+
+        .about-desc {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .about-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .about-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #6366f1 30%, #a78bfa 100%);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.13);
+            transition: all 0.2s;
+        }
+
+        .about-btn:hover {
+            transform: scale(1.04);
+            background: linear-gradient(90deg, #a78bfa 30%, #6366f1 100%);
+        }
+
         /* DevSecOps Table Styles */
         .periodic-table-container {
-            background: #fff;
-            border-radius: 16px;
-            padding: 20px;
             margin: 20px 0;
-            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.08);
         }
 
         .filters {
@@ -151,8 +214,89 @@
             opacity: 1;
         }
 
+        /* Contact block */
+        .contact-block {
+            background: linear-gradient(90deg, #a78bfa 0%, #6366f1 100%);
+            color: #fff;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.13);
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover {
+            color: #f1f5fd;
+            transform: scale(1.08);
+        }
+
+        /* Language switching */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
         /* Responsive styles */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            main {
+                padding: 1rem 0.5rem;
+            }
+
+            section {
+                padding: 1.2rem;
+            }
+
+            .about-block {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .about-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 0.5rem;
+            }
+
+            section {
+                padding: 1rem;
+            }
+
+            .about-photo {
+                width: 120px;
+                height: 120px;
+            }
+
             .table {
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
                 gap: 8px;
@@ -163,34 +307,6 @@
                 width: calc(100% - 20px);
                 margin: 5px 10px;
             }
-        }
-
-        /* Language content */
-        .lang-content {
-            display: none;
-        }
-
-        .lang-content.active {
-            display: block;
-        }
-
-        /* Back button */
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: linear-gradient(90deg, #f1f5fd 60%, #e0e7ef 100%);
-            border-radius: 8px;
-            color: #6366f1;
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 20px;
-            transition: all 0.2s;
-        }
-
-        .back-button:hover {
-            transform: translateX(-3px);
         }
     </style>
 </head>
@@ -207,12 +323,29 @@
     </header>
 
     <main>
-        <a href="../index.html" class="back-button">
-            <span data-lang-en="← Back to Portfolio" data-lang-ua="← Назад до портфоліо">← Back to Portfolio</span>
-        </a>
-
         <!-- English Content -->
         <section class="lang-content en active">
+            <div class="about-block">
+                <img src="img/photo.jpg" alt="My photo" class="about-photo">
+                <div class="about-info">
+                    <div class="about-title">Vitaliy Zaburdaev</div>
+                    <div class="about-role">Developer</div>
+                    <div class="about-desc">
+                        Hi! I'm a passionate developer with a focus on DevSecOps, automation, and modern web
+                        technologies.
+                        I love building efficient, secure, and scalable solutions.
+                    </div>
+                    <div class="about-buttons">
+                        <a href="cv.pdf" class="about-btn" download>
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                        <a href="cover-letter.pdf" class="about-btn" download>
+                            <i class="fas fa-file-alt"></i> Cover Letter
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <h2>DevSecOps Tools</h2>
             <div class="periodic-table-container">
                 <div class="filters">
@@ -235,19 +368,53 @@
                         <option value="Database">Database</option>
                         <option value="Cloud">Cloud</option>
                         <option value="VSM">VSM</option>
+                        <option value="ITSM">ITSM</option>
+                        <option value="Other">Other</option>
                     </select>
                     <input type="text" id="search" placeholder="Search by name" oninput="applyFilters()">
                 </div>
                 <div class="table" id="elementsTable"></div>
             </div>
+
+            <div class="contact-block">
+                <div class="contact-title">Contact Me</div>
+                <div class="contact-links">
+                    <a class="contact-link" href="https://www.linkedin.com/in/vitaliy-zaburdaev/" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a class="contact-link" href="https://github.com/zaburdaev" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
         </section>
 
         <!-- Ukrainian Content -->
         <section class="lang-content ua">
+            <div class="about-block">
+                <img src="img/photo.jpg" alt="Моє фото" class="about-photo">
+                <div class="about-info">
+                    <div class="about-title">Віталій Забурдаєв</div>
+                    <div class="about-role">Розробник</div>
+                    <div class="about-desc">
+                        Привіт! Я захоплений розробник із фокусом на DevSecOps, автоматизацію та сучасні веб-технології.
+                        Люблю створювати ефективні, безпечні та масштабовані рішення.
+                    </div>
+                    <div class="about-buttons">
+                        <a href="cv.pdf" class="about-btn" download>
+                            <i class="fas fa-download"></i> Завантажити CV
+                        </a>
+                        <a href="cover-letter.pdf" class="about-btn" download>
+                            <i class="fas fa-file-alt"></i> Мотиваційний лист
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <h2>Інструменти DevSecOps</h2>
             <div class="periodic-table-container">
                 <div class="filters">
-                    <label for="category">Категорія:</label>
+                    <label for="category-ua">Категорія:</label>
                     <select id="category-ua" onchange="applyFilters()">
                         <option value="all">Всі</option>
                         <option value="SCM">SCM</option>
@@ -266,10 +433,24 @@
                         <option value="Database">Бази даних</option>
                         <option value="Cloud">Хмари</option>
                         <option value="VSM">VSM</option>
+                        <option value="ITSM">ITSM</option>
+                        <option value="Other">Інше</option>
                     </select>
                     <input type="text" id="search-ua" placeholder="Пошук за назвою" oninput="applyFilters()">
                 </div>
                 <div class="table" id="elementsTable-ua"></div>
+            </div>
+
+            <div class="contact-block">
+                <div class="contact-title">Зв'язок зі мною</div>
+                <div class="contact-links">
+                    <a class="contact-link" href="https://www.linkedin.com/in/vitaliy-zaburdaev/" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a class="contact-link" href="https://github.com/zaburdaev" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -331,8 +512,7 @@
             const savedLang = localStorage.getItem('lang') || 'en';
             switchLang(savedLang);
 
-            // Load DevSecOps data
-            fetch("data/devsecops-full-data.json")
+            fetch("data/devsecops-full-120.json")
                 .then(res => res.json())
                 .then(data => {
                     elements = data;

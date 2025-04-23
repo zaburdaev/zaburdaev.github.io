@@ -1,0 +1,722 @@
+[
+  {
+    "symbol": "Aj",
+    "name": "Atlassian Jira",
+    "category": "EAP",
+    "description": "Agile project management."
+  },
+  {
+    "symbol": "Gi",
+    "name": "Git",
+    "category": "SCM",
+    "description": "Distributed version control."
+  },
+  {
+    "symbol": "Daa",
+    "name": "Digital.ai Agility",
+    "category": "EAP",
+    "description": "Enterprise agile planning."
+  },
+  {
+    "symbol": "Tp",
+    "name": "Targetprocess",
+    "category": "EAP",
+    "description": "Visual project management."
+  },
+  {
+    "symbol": "Azp",
+    "name": "Azure DevOps Pipelines",
+    "category": "CI",
+    "description": "Microsoft CI/CD tool."
+  },
+  {
+    "symbol": "Ow",
+    "name": "OWASP ZAP",
+    "category": "Security",
+    "description": "Web app security scanner."
+  },
+  {
+    "symbol": "Dap",
+    "name": "Digital.ai App Protection",
+    "category": "Security",
+    "description": "App shielding."
+  },
+  {
+    "symbol": "Ck",
+    "name": "CyberArk Conjur",
+    "category": "Security",
+    "description": "Secrets management."
+  },
+  {
+    "symbol": "Sw",
+    "name": "ServiceNow",
+    "category": "ITSM",
+    "description": "IT service management."
+  },
+  {
+    "symbol": "Gh",
+    "name": "GitHub",
+    "category": "SCM",
+    "description": "Version control & collaboration."
+  },
+  {
+    "symbol": "Pv",
+    "name": "Planview",
+    "category": "VSM",
+    "description": "Strategic portfolio management."
+  },
+  {
+    "symbol": "Br",
+    "name": "Broadcom Rally",
+    "category": "EAP",
+    "description": "Agile project tracking."
+  },
+  {
+    "symbol": "Dad",
+    "name": "Digital.ai Deploy",
+    "category": "Deployment",
+    "description": "Release automation."
+  },
+  {
+    "symbol": "Sni",
+    "name": "Sonatype Nexus IQ",
+    "category": "Security",
+    "description": "Component intelligence."
+  },
+  {
+    "symbol": "Aq",
+    "name": "Aqua Security",
+    "category": "Security",
+    "description": "Cloud-native security."
+  },
+  {
+    "symbol": "Vc",
+    "name": "Veracode",
+    "category": "Security",
+    "description": "Application security testing."
+  },
+  {
+    "symbol": "Bi",
+    "name": "BMC Helix ITSM",
+    "category": "ITSM",
+    "description": "IT service management suite."
+  },
+  {
+    "symbol": "Gls",
+    "name": "GitLab SCM",
+    "category": "SCM",
+    "description": "Git repo management."
+  },
+  {
+    "symbol": "Aj",
+    "name": "Atlassian Jira",
+    "category": "EAP",
+    "description": "Agile project management."
+  },
+  {
+    "symbol": "Dd",
+    "name": "Datadog",
+    "category": "Monitoring",
+    "description": "Cloud monitoring platform."
+  },
+  {
+    "symbol": "Bp",
+    "name": "Big Panda",
+    "category": "Monitoring",
+    "description": "IT incident automation."
+  },
+  {
+    "symbol": "In",
+    "name": "Instana",
+    "category": "Monitoring",
+    "description": "Application performance management."
+  },
+  {
+    "symbol": "Acp",
+    "name": "AWS CodePipeline",
+    "category": "CI",
+    "description": "CI/CD pipeline from AWS."
+  },
+  {
+    "symbol": "Mt",
+    "name": "Microsoft Teams",
+    "category": "Collaboration",
+    "description": "Team collaboration chat."
+  },
+  {
+    "symbol": "X24",
+    "name": "Tool 25",
+    "category": "Other",
+    "description": "Description for Tool 25."
+  },
+  {
+    "symbol": "X25",
+    "name": "Tool 26",
+    "category": "Other",
+    "description": "Description for Tool 26."
+  },
+  {
+    "symbol": "X26",
+    "name": "Tool 27",
+    "category": "Other",
+    "description": "Description for Tool 27."
+  },
+  {
+    "symbol": "X27",
+    "name": "Tool 28",
+    "category": "Other",
+    "description": "Description for Tool 28."
+  },
+  {
+    "symbol": "X28",
+    "name": "Tool 29",
+    "category": "Other",
+    "description": "Description for Tool 29."
+  },
+  {
+    "symbol": "X29",
+    "name": "Tool 30",
+    "category": "Other",
+    "description": "Description for Tool 30."
+  },
+  {
+    "symbol": "X30",
+    "name": "Tool 31",
+    "category": "Other",
+    "description": "Description for Tool 31."
+  },
+  {
+    "symbol": "X31",
+    "name": "Tool 32",
+    "category": "Other",
+    "description": "Description for Tool 32."
+  },
+  {
+    "symbol": "X32",
+    "name": "Tool 33",
+    "category": "Other",
+    "description": "Description for Tool 33."
+  },
+  {
+    "symbol": "X33",
+    "name": "Tool 34",
+    "category": "Other",
+    "description": "Description for Tool 34."
+  },
+  {
+    "symbol": "X34",
+    "name": "Tool 35",
+    "category": "Other",
+    "description": "Description for Tool 35."
+  },
+  {
+    "symbol": "X35",
+    "name": "Tool 36",
+    "category": "Other",
+    "description": "Description for Tool 36."
+  },
+  {
+    "symbol": "X36",
+    "name": "Tool 37",
+    "category": "Other",
+    "description": "Description for Tool 37."
+  },
+  {
+    "symbol": "X37",
+    "name": "Tool 38",
+    "category": "Other",
+    "description": "Description for Tool 38."
+  },
+  {
+    "symbol": "X38",
+    "name": "Tool 39",
+    "category": "Other",
+    "description": "Description for Tool 39."
+  },
+  {
+    "symbol": "X39",
+    "name": "Tool 40",
+    "category": "Other",
+    "description": "Description for Tool 40."
+  },
+  {
+    "symbol": "X40",
+    "name": "Tool 41",
+    "category": "Other",
+    "description": "Description for Tool 41."
+  },
+  {
+    "symbol": "X41",
+    "name": "Tool 42",
+    "category": "Other",
+    "description": "Description for Tool 42."
+  },
+  {
+    "symbol": "X42",
+    "name": "Tool 43",
+    "category": "Other",
+    "description": "Description for Tool 43."
+  },
+  {
+    "symbol": "X43",
+    "name": "Tool 44",
+    "category": "Other",
+    "description": "Description for Tool 44."
+  },
+  {
+    "symbol": "X44",
+    "name": "Tool 45",
+    "category": "Other",
+    "description": "Description for Tool 45."
+  },
+  {
+    "symbol": "X45",
+    "name": "Tool 46",
+    "category": "Other",
+    "description": "Description for Tool 46."
+  },
+  {
+    "symbol": "X46",
+    "name": "Tool 47",
+    "category": "Other",
+    "description": "Description for Tool 47."
+  },
+  {
+    "symbol": "X47",
+    "name": "Tool 48",
+    "category": "Other",
+    "description": "Description for Tool 48."
+  },
+  {
+    "symbol": "X48",
+    "name": "Tool 49",
+    "category": "Other",
+    "description": "Description for Tool 49."
+  },
+  {
+    "symbol": "X49",
+    "name": "Tool 50",
+    "category": "Other",
+    "description": "Description for Tool 50."
+  },
+  {
+    "symbol": "X50",
+    "name": "Tool 51",
+    "category": "Other",
+    "description": "Description for Tool 51."
+  },
+  {
+    "symbol": "X51",
+    "name": "Tool 52",
+    "category": "Other",
+    "description": "Description for Tool 52."
+  },
+  {
+    "symbol": "X52",
+    "name": "Tool 53",
+    "category": "Other",
+    "description": "Description for Tool 53."
+  },
+  {
+    "symbol": "X53",
+    "name": "Tool 54",
+    "category": "Other",
+    "description": "Description for Tool 54."
+  },
+  {
+    "symbol": "X54",
+    "name": "Tool 55",
+    "category": "Other",
+    "description": "Description for Tool 55."
+  },
+  {
+    "symbol": "X55",
+    "name": "Tool 56",
+    "category": "Other",
+    "description": "Description for Tool 56."
+  },
+  {
+    "symbol": "X56",
+    "name": "Tool 57",
+    "category": "Other",
+    "description": "Description for Tool 57."
+  },
+  {
+    "symbol": "X57",
+    "name": "Tool 58",
+    "category": "Other",
+    "description": "Description for Tool 58."
+  },
+  {
+    "symbol": "X58",
+    "name": "Tool 59",
+    "category": "Other",
+    "description": "Description for Tool 59."
+  },
+  {
+    "symbol": "X59",
+    "name": "Tool 60",
+    "category": "Other",
+    "description": "Description for Tool 60."
+  },
+  {
+    "symbol": "X60",
+    "name": "Tool 61",
+    "category": "Other",
+    "description": "Description for Tool 61."
+  },
+  {
+    "symbol": "X61",
+    "name": "Tool 62",
+    "category": "Other",
+    "description": "Description for Tool 62."
+  },
+  {
+    "symbol": "X62",
+    "name": "Tool 63",
+    "category": "Other",
+    "description": "Description for Tool 63."
+  },
+  {
+    "symbol": "X63",
+    "name": "Tool 64",
+    "category": "Other",
+    "description": "Description for Tool 64."
+  },
+  {
+    "symbol": "X64",
+    "name": "Tool 65",
+    "category": "Other",
+    "description": "Description for Tool 65."
+  },
+  {
+    "symbol": "X65",
+    "name": "Tool 66",
+    "category": "Other",
+    "description": "Description for Tool 66."
+  },
+  {
+    "symbol": "X66",
+    "name": "Tool 67",
+    "category": "Other",
+    "description": "Description for Tool 67."
+  },
+  {
+    "symbol": "X67",
+    "name": "Tool 68",
+    "category": "Other",
+    "description": "Description for Tool 68."
+  },
+  {
+    "symbol": "X68",
+    "name": "Tool 69",
+    "category": "Other",
+    "description": "Description for Tool 69."
+  },
+  {
+    "symbol": "X69",
+    "name": "Tool 70",
+    "category": "Other",
+    "description": "Description for Tool 70."
+  },
+  {
+    "symbol": "X70",
+    "name": "Tool 71",
+    "category": "Other",
+    "description": "Description for Tool 71."
+  },
+  {
+    "symbol": "X71",
+    "name": "Tool 72",
+    "category": "Other",
+    "description": "Description for Tool 72."
+  },
+  {
+    "symbol": "X72",
+    "name": "Tool 73",
+    "category": "Other",
+    "description": "Description for Tool 73."
+  },
+  {
+    "symbol": "X73",
+    "name": "Tool 74",
+    "category": "Other",
+    "description": "Description for Tool 74."
+  },
+  {
+    "symbol": "X74",
+    "name": "Tool 75",
+    "category": "Other",
+    "description": "Description for Tool 75."
+  },
+  {
+    "symbol": "X75",
+    "name": "Tool 76",
+    "category": "Other",
+    "description": "Description for Tool 76."
+  },
+  {
+    "symbol": "X76",
+    "name": "Tool 77",
+    "category": "Other",
+    "description": "Description for Tool 77."
+  },
+  {
+    "symbol": "X77",
+    "name": "Tool 78",
+    "category": "Other",
+    "description": "Description for Tool 78."
+  },
+  {
+    "symbol": "X78",
+    "name": "Tool 79",
+    "category": "Other",
+    "description": "Description for Tool 79."
+  },
+  {
+    "symbol": "X79",
+    "name": "Tool 80",
+    "category": "Other",
+    "description": "Description for Tool 80."
+  },
+  {
+    "symbol": "X80",
+    "name": "Tool 81",
+    "category": "Other",
+    "description": "Description for Tool 81."
+  },
+  {
+    "symbol": "X81",
+    "name": "Tool 82",
+    "category": "Other",
+    "description": "Description for Tool 82."
+  },
+  {
+    "symbol": "X82",
+    "name": "Tool 83",
+    "category": "Other",
+    "description": "Description for Tool 83."
+  },
+  {
+    "symbol": "X83",
+    "name": "Tool 84",
+    "category": "Other",
+    "description": "Description for Tool 84."
+  },
+  {
+    "symbol": "X84",
+    "name": "Tool 85",
+    "category": "Other",
+    "description": "Description for Tool 85."
+  },
+  {
+    "symbol": "X85",
+    "name": "Tool 86",
+    "category": "Other",
+    "description": "Description for Tool 86."
+  },
+  {
+    "symbol": "X86",
+    "name": "Tool 87",
+    "category": "Other",
+    "description": "Description for Tool 87."
+  },
+  {
+    "symbol": "X87",
+    "name": "Tool 88",
+    "category": "Other",
+    "description": "Description for Tool 88."
+  },
+  {
+    "symbol": "X88",
+    "name": "Tool 89",
+    "category": "Other",
+    "description": "Description for Tool 89."
+  },
+  {
+    "symbol": "X89",
+    "name": "Tool 90",
+    "category": "Other",
+    "description": "Description for Tool 90."
+  },
+  {
+    "symbol": "X90",
+    "name": "Tool 91",
+    "category": "Other",
+    "description": "Description for Tool 91."
+  },
+  {
+    "symbol": "X91",
+    "name": "Tool 92",
+    "category": "Other",
+    "description": "Description for Tool 92."
+  },
+  {
+    "symbol": "X92",
+    "name": "Tool 93",
+    "category": "Other",
+    "description": "Description for Tool 93."
+  },
+  {
+    "symbol": "X93",
+    "name": "Tool 94",
+    "category": "Other",
+    "description": "Description for Tool 94."
+  },
+  {
+    "symbol": "X94",
+    "name": "Tool 95",
+    "category": "Other",
+    "description": "Description for Tool 95."
+  },
+  {
+    "symbol": "X95",
+    "name": "Tool 96",
+    "category": "Other",
+    "description": "Description for Tool 96."
+  },
+  {
+    "symbol": "X96",
+    "name": "Tool 97",
+    "category": "Other",
+    "description": "Description for Tool 97."
+  },
+  {
+    "symbol": "X97",
+    "name": "Tool 98",
+    "category": "Other",
+    "description": "Description for Tool 98."
+  },
+  {
+    "symbol": "X98",
+    "name": "Tool 99",
+    "category": "Other",
+    "description": "Description for Tool 99."
+  },
+  {
+    "symbol": "X99",
+    "name": "Tool 100",
+    "category": "Other",
+    "description": "Description for Tool 100."
+  },
+  {
+    "symbol": "X100",
+    "name": "Tool 101",
+    "category": "Other",
+    "description": "Description for Tool 101."
+  },
+  {
+    "symbol": "X101",
+    "name": "Tool 102",
+    "category": "Other",
+    "description": "Description for Tool 102."
+  },
+  {
+    "symbol": "X102",
+    "name": "Tool 103",
+    "category": "Other",
+    "description": "Description for Tool 103."
+  },
+  {
+    "symbol": "X103",
+    "name": "Tool 104",
+    "category": "Other",
+    "description": "Description for Tool 104."
+  },
+  {
+    "symbol": "X104",
+    "name": "Tool 105",
+    "category": "Other",
+    "description": "Description for Tool 105."
+  },
+  {
+    "symbol": "X105",
+    "name": "Tool 106",
+    "category": "Other",
+    "description": "Description for Tool 106."
+  },
+  {
+    "symbol": "X106",
+    "name": "Tool 107",
+    "category": "Other",
+    "description": "Description for Tool 107."
+  },
+  {
+    "symbol": "X107",
+    "name": "Tool 108",
+    "category": "Other",
+    "description": "Description for Tool 108."
+  },
+  {
+    "symbol": "X108",
+    "name": "Tool 109",
+    "category": "Other",
+    "description": "Description for Tool 109."
+  },
+  {
+    "symbol": "X109",
+    "name": "Tool 110",
+    "category": "Other",
+    "description": "Description for Tool 110."
+  },
+  {
+    "symbol": "X110",
+    "name": "Tool 111",
+    "category": "Other",
+    "description": "Description for Tool 111."
+  },
+  {
+    "symbol": "X111",
+    "name": "Tool 112",
+    "category": "Other",
+    "description": "Description for Tool 112."
+  },
+  {
+    "symbol": "X112",
+    "name": "Tool 113",
+    "category": "Other",
+    "description": "Description for Tool 113."
+  },
+  {
+    "symbol": "X113",
+    "name": "Tool 114",
+    "category": "Other",
+    "description": "Description for Tool 114."
+  },
+  {
+    "symbol": "X114",
+    "name": "Tool 115",
+    "category": "Other",
+    "description": "Description for Tool 115."
+  },
+  {
+    "symbol": "X115",
+    "name": "Tool 116",
+    "category": "Other",
+    "description": "Description for Tool 116."
+  },
+  {
+    "symbol": "X116",
+    "name": "Tool 117",
+    "category": "Other",
+    "description": "Description for Tool 117."
+  },
+  {
+    "symbol": "X117",
+    "name": "Tool 118",
+    "category": "Other",
+    "description": "Description for Tool 118."
+  },
+  {
+    "symbol": "X118",
+    "name": "Tool 119",
+    "category": "Other",
+    "description": "Description for Tool 119."
+  },
+  {
+    "symbol": "X119",
+    "name": "Tool 120",
+    "category": "Other",
+    "description": "Description for Tool 120."
+  }
+]
