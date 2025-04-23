@@ -20,6 +20,31 @@
             padding: 1rem;
         }
 
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #fff;
+            color: #6366f1;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.13);
+            transition: all 0.2s;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+
         main {
             max-width: 1200px;
             margin: 2rem auto;
@@ -233,25 +258,6 @@
             transform: scale(1.08);
         }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            color: #6366f1;
-            background: #f3f4f6;
-            border-radius: 8px;
-            padding: 8px 18px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.2s, color 0.2s;
-            border: 1px solid #e0e7ef;
-        }
-
-        .back-link:hover {
-            background: #a78bfa;
-            color: #fff;
-        }
-
         @media (max-width: 900px) {
             main {
                 padding: 1rem 0.5rem;
@@ -301,18 +307,16 @@
 </head>
 
 <body>
+    <a href="../index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
     <header>
         <h1>About Me</h1>
     </header>
     <main>
-        <!-- Кнопка назад -->
-        <a href="../../index.html#about-me" class="back-link" data-lang-en="← Back to Portfolio"
-            data-lang-ua="← Назад до портфоліо">
-            ← Back to Portfolio
-        </a>
         <section>
             <div class="about-block">
-                <img src="../../assets/images/169661503270.jpeg" alt="My photo" class="about-photo">
+                <img src="../img/photo.jpg" alt="My photo" class="about-photo">
                 <div class="about-info">
                     <div class="about-title">Vitaliy Zaburdaev</div>
                     <div class="about-role">Developer</div>
@@ -336,6 +340,7 @@
                     <label for="category">Category:</label>
                     <select id="category" onchange="applyFilters()">
                         <option value="all">All</option>
+                        <!-- категории будут добавлены скриптом -->
                     </select>
                     <input type="text" id="search" placeholder="Search by name" oninput="applyFilters()">
                 </div>
@@ -363,6 +368,7 @@
             "Plan", "Create", "Verify", "Package", "Secure", "Release", "Configure", "Monitor",
             "Version Control", "Database", "Cloud", "Container"
         ];
+        // Обновляем select options
         function updateCategoryOptions() {
             const select = document.getElementById("category");
             select.innerHTML = `<option value="all">All</option>` +
@@ -394,7 +400,7 @@
         }
         window.onload = function () {
             updateCategoryOptions();
-            fetch("../../data/devsecops-full-120.json")
+            fetch("data/devsecops-full-120.json")
                 .then(res => res.json())
                 .then(data => {
                     elements = data;
