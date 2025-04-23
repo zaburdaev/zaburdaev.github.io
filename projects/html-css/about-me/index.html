@@ -4,38 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang-en="About Me" data-lang-ua="Про мене">About Me</title>
+    <title>About Me</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background: #f8fafc;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
-            color: #222;
         }
 
         header {
             background: linear-gradient(90deg, #a78bfa 0%, #6366f1 100%);
             color: #fff;
             padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 12px rgba(99, 102, 241, 0.10);
         }
 
-        .lang-switch {
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #fff;
+            color: #6366f1;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: bold;
-            padding: 5px;
-            font-size: 1.2rem;
-            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.13);
+            transition: all 0.2s;
+            z-index: 1000;
         }
 
-        .lang-switch:hover {
-            transform: scale(1.1);
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
         }
 
         main {
@@ -121,7 +128,6 @@
             background: linear-gradient(90deg, #a78bfa 30%, #6366f1 100%);
         }
 
-        /* DevSecOps Table Styles */
         .periodic-table-container {
             margin: 20px 0;
         }
@@ -214,7 +220,6 @@
             opacity: 1;
         }
 
-        /* Contact block */
         .contact-block {
             background: linear-gradient(90deg, #a78bfa 0%, #6366f1 100%);
             color: #fff;
@@ -253,16 +258,6 @@
             transform: scale(1.08);
         }
 
-        /* Language switching */
-        .lang-content {
-            display: none;
-        }
-
-        .lang-content.active {
-            display: block;
-        }
-
-        /* Responsive styles */
         @media (max-width: 900px) {
             main {
                 padding: 1rem 0.5rem;
@@ -312,21 +307,16 @@
 </head>
 
 <body>
+    <a href="../index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
     <header>
-        <h1>
-            <span data-lang-en="About Me" data-lang-ua="Про мене">About Me</span>
-        </h1>
-        <nav>
-            <span class="lang-switch" onclick="switchLang('en')">🇬🇧</span>
-            <span class="lang-switch" onclick="switchLang('ua')">🇺🇦</span>
-        </nav>
+        <h1>About Me</h1>
     </header>
-
     <main>
-        <!-- English Content -->
-        <section class="lang-content en active">
+        <section>
             <div class="about-block">
-                <img src="img/photo.jpg" alt="My photo" class="about-photo">
+                <img src="../img/photo.jpg" alt="My photo" class="about-photo">
                 <div class="about-info">
                     <div class="about-title">Vitaliy Zaburdaev</div>
                     <div class="about-role">Developer</div>
@@ -345,37 +335,17 @@
                     </div>
                 </div>
             </div>
-
-            <h2>DevSecOps Tools</h2>
             <div class="periodic-table-container">
                 <div class="filters">
                     <label for="category">Category:</label>
                     <select id="category" onchange="applyFilters()">
                         <option value="all">All</option>
-                        <option value="SCM">SCM</option>
-                        <option value="EAP">EAP</option>
-                        <option value="Monitoring">Monitoring</option>
-                        <option value="Collaboration">Collaboration</option>
-                        <option value="Container">Container</option>
-                        <option value="Orchestration">Orchestration</option>
-                        <option value="CI">CI</option>
-                        <option value="Package">Package</option>
-                        <option value="Testing">Testing</option>
-                        <option value="Security">Security</option>
-                        <option value="Deployment">Deployment</option>
-                        <option value="PaaS">PaaS</option>
-                        <option value="Release">Release</option>
-                        <option value="Database">Database</option>
-                        <option value="Cloud">Cloud</option>
-                        <option value="VSM">VSM</option>
-                        <option value="ITSM">ITSM</option>
-                        <option value="Other">Other</option>
+                        <!-- категории будут добавлены скриптом -->
                     </select>
                     <input type="text" id="search" placeholder="Search by name" oninput="applyFilters()">
                 </div>
                 <div class="table" id="elementsTable"></div>
             </div>
-
             <div class="contact-block">
                 <div class="contact-title">Contact Me</div>
                 <div class="contact-links">
@@ -385,133 +355,51 @@
                     <a class="contact-link" href="https://github.com/zaburdaev" target="_blank">
                         <i class="fab fa-github"></i> GitHub
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ukrainian Content -->
-        <section class="lang-content ua">
-            <div class="about-block">
-                <img src="img/photo.jpg" alt="Моє фото" class="about-photo">
-                <div class="about-info">
-                    <div class="about-title">Віталій Забурдаєв</div>
-                    <div class="about-role">Розробник</div>
-                    <div class="about-desc">
-                        Привіт! Я захоплений розробник із фокусом на DevSecOps, автоматизацію та сучасні веб-технології.
-                        Люблю створювати ефективні, безпечні та масштабовані рішення.
-                    </div>
-                    <div class="about-buttons">
-                        <a href="cv.pdf" class="about-btn" download>
-                            <i class="fas fa-download"></i> Завантажити CV
-                        </a>
-                        <a href="cover-letter.pdf" class="about-btn" download>
-                            <i class="fas fa-file-alt"></i> Мотиваційний лист
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <h2>Інструменти DevSecOps</h2>
-            <div class="periodic-table-container">
-                <div class="filters">
-                    <label for="category-ua">Категорія:</label>
-                    <select id="category-ua" onchange="applyFilters()">
-                        <option value="all">Всі</option>
-                        <option value="SCM">SCM</option>
-                        <option value="EAP">EAP</option>
-                        <option value="Monitoring">Моніторинг</option>
-                        <option value="Collaboration">Співпраця</option>
-                        <option value="Container">Контейнери</option>
-                        <option value="Orchestration">Оркестрація</option>
-                        <option value="CI">CI</option>
-                        <option value="Package">Пакети</option>
-                        <option value="Testing">Тестування</option>
-                        <option value="Security">Безпека</option>
-                        <option value="Deployment">Розгортання</option>
-                        <option value="PaaS">PaaS</option>
-                        <option value="Release">Релізи</option>
-                        <option value="Database">Бази даних</option>
-                        <option value="Cloud">Хмари</option>
-                        <option value="VSM">VSM</option>
-                        <option value="ITSM">ITSM</option>
-                        <option value="Other">Інше</option>
-                    </select>
-                    <input type="text" id="search-ua" placeholder="Пошук за назвою" oninput="applyFilters()">
-                </div>
-                <div class="table" id="elementsTable-ua"></div>
-            </div>
-
-            <div class="contact-block">
-                <div class="contact-title">Зв'язок зі мною</div>
-                <div class="contact-links">
-                    <a class="contact-link" href="https://www.linkedin.com/in/vitaliy-zaburdaev/" target="_blank">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a class="contact-link" href="https://github.com/zaburdaev" target="_blank">
-                        <i class="fab fa-github"></i> GitHub
+                    <a class="contact-link" href="mailto:vitaliy.zaburdaev@gmail.com">
+                        <i class="fas fa-envelope"></i> Email
                     </a>
                 </div>
             </div>
         </section>
     </main>
-
     <script>
-        // Language switching
-        function switchLang(lang) {
-            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('[data-lang-en], [data-lang-ua]').forEach(el => {
-                if (lang === 'en' && el.hasAttribute('data-lang-en')) {
-                    el.textContent = el.getAttribute('data-lang-en');
-                }
-                if (lang === 'ua' && el.hasAttribute('data-lang-ua')) {
-                    el.textContent = el.getAttribute('data-lang-ua');
-                }
-            });
-            document.querySelector(`.lang-content.${lang}`).classList.add('active');
-            localStorage.setItem('lang', lang);
+        // Категории из PDF
+        const categories = [
+            "Plan", "Create", "Verify", "Package", "Secure", "Release", "Configure", "Monitor",
+            "Version Control", "Database", "Cloud", "Container"
+        ];
+        // Обновляем select options
+        function updateCategoryOptions() {
+            const select = document.getElementById("category");
+            select.innerHTML = `<option value="all">All</option>` +
+                categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
         }
-
-        // DevSecOps Table
         let elements = [];
-
         function renderElements(filterCategory = "all", searchTerm = "") {
-            const containers = [
-                document.getElementById("elementsTable"),
-                document.getElementById("elementsTable-ua")
-            ];
-
-            containers.forEach(container => {
-                if (!container) return;
-
-                container.innerHTML = "";
-                elements.forEach(el => {
-                    if ((filterCategory === "all" || el.category === filterCategory) &&
-                        el.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-                        const div = document.createElement("div");
-                        div.className = "element";
-                        div.innerHTML = `
-                            <div class="tooltip">${el.description || "No description available."}</div>
-                            <div class="symbol">${el.symbol}</div>
-                            <div class="name">${el.name}</div>
-                            <div class="category">${el.category}</div>
-                        `;
-                        container.appendChild(div);
-                    }
-                });
+            const container = document.getElementById("elementsTable");
+            container.innerHTML = "";
+            elements.forEach(el => {
+                if ((filterCategory === "all" || el.category === filterCategory) &&
+                    el.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    const div = document.createElement("div");
+                    div.className = "element";
+                    div.innerHTML = `
+            <div class="tooltip">${el.description || "No description available."}</div>
+            <div class="symbol">${el.symbol}</div>
+            <div class="name">${el.name}</div>
+            <div class="category">${el.category}</div>
+          `;
+                    container.appendChild(div);
+                }
             });
         }
-
         function applyFilters() {
             const category = document.getElementById("category")?.value || "all";
             const search = document.getElementById("search")?.value || "";
             renderElements(category, search);
         }
-
-        // Initialize
         window.onload = function () {
-            const savedLang = localStorage.getItem('lang') || 'en';
-            switchLang(savedLang);
-
+            updateCategoryOptions();
             fetch("data/devsecops-full-120.json")
                 .then(res => res.json())
                 .then(data => {
