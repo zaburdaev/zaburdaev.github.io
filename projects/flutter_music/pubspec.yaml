@@ -2,6 +2,8 @@ name: flutter_music
 description: Music Pomodoro app with player and timer
 publish_to: "none"
 
+version: 1.0.0+1 # добавь эту строку для решения предупреждения о версии
+
 environment:
   sdk: ">=3.7.0 <4.0.0"
 
@@ -10,11 +12,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  # остальные зависимости, если есть
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  audioplayers: ^5.2.1 # добавь эту строку
+  # остальные зависимости...
 
 flutter:
   uses-material-design: true

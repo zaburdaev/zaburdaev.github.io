@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
         Locale('en'),
         Locale('uk'),
       ],
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      localizationsDelegates: AppLocalizations.localizationsDelegates.cast<LocalizationsDelegate<dynamic>>(),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
