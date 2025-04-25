@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'player_screen.dart';
+import 'categories_screen.dart';
 import 'pomodoro_screen.dart';
 import 'l10n.dart';
 
@@ -15,8 +15,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    PlayerScreen(),
-    PomodoroScreen(),
+    const CategoriesScreen(), // Теперь тут CategoriesScreen
+    const PomodoroScreen(),
   ];
 
   @override
