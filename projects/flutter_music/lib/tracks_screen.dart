@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 import 'models/category_item.dart';
 import 'l10n.dart';
-import './player_screen.dart';  // измени на это
+import 'player_screen.dart';
 
-class TracksScreen extends StatelessWidget {
+class TracksScreen extends StatefulWidget {
   final CategoryItem category;
+  final int? playingIndex; // добавлено
 
-  const TracksScreen({super.key, required this.category});
+  const TracksScreen({super.key, required this.category, this.playingIndex});
+
+  @override
+  State<TracksScreen> createState() => _TracksScreenState();
+}
+
+class _TracksScreenState extends State<TracksScreen> {
+  int? _playingIndex;
 
   List<Map<String, String>> getMockTracks(String categoryId, AppLocalizations loc) {
-    // Для всех категорий одинаковый список с рабочими обложками Unsplash
     return [
       {
         'title': 'Lo-fi Chill',
@@ -17,47 +24,24 @@ class TracksScreen extends StatelessWidget {
         'cover': 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308',
         'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
       },
-      {
-        'title': 'Night Coding',
-        'artist': 'LoFi Beats',
-        'cover': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
-        'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-      },
-      {
-        'title': 'Ambient Flow',
-        'artist': 'Atmos',
-        'cover': 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca',
-        'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-      },
-      {
-        'title': 'Space Dreams',
-        'artist': 'Dreamer',
-        'cover': 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca',
-        'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-      },
-      {
-        'title': 'Nature Walk',
-        'artist': 'Green Sound',
-        'cover': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
-        'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
-      },
-      {
-        'title': 'Rainy Mood',
-        'artist': 'Rainy',
-        'cover': 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308',
-        'url': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
-      },
+      // ... остальные треки
     ];
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _playingIndex = widget.playingIndex;
   }
 
   @override
   Widget build(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
-    final tracks = getMockTracks(category.id, loc);
+    final tracks = getMockTracks(widget.category.id, loc);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(loc.categoryTitle(category.id)),
+        title: Text(loc.categoryTitle(widget.category.id)),
         centerTitle: true,
         backgroundColor: Colors.deepPurple.shade400,
         foregroundColor: Colors.white,
@@ -67,10 +51,11 @@ class TracksScreen extends StatelessWidget {
         separatorBuilder: (_, __) => const Divider(height: 1),
         itemBuilder: (context, index) {
           final track = tracks[index];
+          final isPlaying = index == _playingIndex;
           return ListTile(
             leading: (track['cover'] != null && track['cover']!.isNotEmpty)
                 ? CircleAvatar(
-                    backgroundColor: Colors.deepPurple.shade200,
+                    backgroundColor: isPlaying ? Colors.green : Colors.deepPurple.shade200,
                     child: ClipOval(
                       child: Image.network(
                         track['cover']!,
@@ -82,28 +67,37 @@ class TracksScreen extends StatelessWidget {
                     ),
                   )
                 : CircleAvatar(
-                    backgroundColor: Colors.deepPurple.shade200,
+                    backgroundColor: isPlaying ? Colors.green : Colors.deepPurple.shade200,
                     child: const Icon(Icons.music_note, color: Colors.white),
                   ),
             title: Text(
               track['title'] ?? '',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: isPlaying ? Colors.green : null,
+              ),
             ),
             subtitle: Text(track['artist'] ?? ''),
-            trailing: IconButton(
-              icon: const Icon(Icons.play_arrow),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PlayerScreen(
-                      tracks: tracks,
-                      initialIndex: index,
-                    ),
+            trailing: isPlaying
+                ? const Icon(Icons.equalizer, color: Colors.green)
+                : IconButton(
+                    icon: const Icon(Icons.play_arrow),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PlayerScreen(
+                            tracks: tracks,
+                            initialIndex: index,
+                          ),
+                        ),
+                      ).then((_) {
+                        setState(() {
+                          _playingIndex = index;
+                        });
+                      });
+                    },
                   ),
-                );
-              },
-            ),
             onTap: () {
               Navigator.push(
                 context,
@@ -113,8 +107,13 @@ class TracksScreen extends StatelessWidget {
                     initialIndex: index,
                   ),
                 ),
-              );
+              ).then((_) {
+                setState(() {
+                  _playingIndex = index;
+                });
+              });
             },
+            selected: isPlaying,
           );
         },
       ),

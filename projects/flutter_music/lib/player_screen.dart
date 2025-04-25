@@ -25,6 +25,9 @@ class _PlayerScreenState extends State<PlayerScreen> {
   String? _error;
   StreamSubscription? _playerStateSub;
 
+  Duration _position = Duration.zero;
+  Duration _duration = Duration.zero;
+
   @override
   void initState() {
     super.initState();
@@ -36,7 +39,6 @@ class _PlayerScreenState extends State<PlayerScreen> {
     try {
       _audioHandler = await getAudioHandler();
 
-      // Формируем очередь треков
       final mediaItems = widget.tracks.map((track) => MediaItem(
         id: track['url']!,
         album: '',
@@ -45,11 +47,11 @@ class _PlayerScreenState extends State<PlayerScreen> {
         artUri: (track['cover'] != null && track['cover']!.isNotEmpty)
             ? Uri.parse(track['cover']!)
             : null,
+        duration: null,
       )).toList();
 
       await _audioHandler!.updateQueue(mediaItems);
 
-      // Подписка на состояние плеера
       _playerStateSub = _audioHandler!.playerStateStream.listen((state) {
         if (!mounted) return;
         setState(() {
@@ -57,13 +59,24 @@ class _PlayerScreenState extends State<PlayerScreen> {
         });
       });
 
+      _audioHandler!.positionStream.listen((pos) {
+        if (!mounted) return;
+        setState(() {
+          _position = pos;
+        });
+      });
+      _audioHandler!.durationStream.listen((dur) {
+        if (!mounted) return;
+        setState(() {
+          _duration = dur ?? Duration.zero;
+        });
+      });
+
       setState(() {
         _isLoading = false;
       });
-      
-      // Автоматически запускаем трек при открытии экрана
+
       await _audioHandler!.playMediaItem(mediaItems[_currentIndex]);
-      
     } catch (e) {
       if (!mounted) return;
       setState(() {
@@ -103,6 +116,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
         artUri: (track['cover'] != null && track['cover']!.isNotEmpty)
             ? Uri.parse(track['cover']!)
             : null,
+        duration: null,
       )).toList();
       await _audioHandler!.playMediaItem(mediaItems[_currentIndex]);
     }
@@ -121,6 +135,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
         artUri: (track['cover'] != null && track['cover']!.isNotEmpty)
             ? Uri.parse(track['cover']!)
             : null,
+        duration: null,
       )).toList();
       await _audioHandler!.playMediaItem(mediaItems[_currentIndex]);
     }
@@ -202,6 +217,29 @@ class _PlayerScreenState extends State<PlayerScreen> {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
+          // Прогресс-бар
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Column(
+              children: [
+                Slider(
+                  value: _position.inSeconds.toDouble(),
+                  max: _duration.inSeconds > 0 ? _duration.inSeconds.toDouble() : 1,
+                  onChanged: (value) {
+                    _audioHandler!.seek(Duration(seconds: value.toInt()));
+                  },
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(_formatDuration(_position)),
+                    Text(_formatDuration(_duration)),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -227,5 +265,12 @@ class _PlayerScreenState extends State<PlayerScreen> {
         ],
       ),
     );
+  }
+
+  String _formatDuration(Duration d) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final minutes = twoDigits(d.inMinutes.remainder(60));
+    final seconds = twoDigits(d.inSeconds.remainder(60));
+    return '$minutes:$seconds';
   }
 }
